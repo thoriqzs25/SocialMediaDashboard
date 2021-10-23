@@ -1,10 +1,11 @@
-import MainHeader from "./components/Layout/MainHeader";
+import ContentGrid from "./components/Grid/ContentGrid";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
-    <div className="App">
-      <MainHeader />
-    </div>
+    <Layout>
+      <ContentGrid />
+    </Layout>
   );
 }
 

@@ -1,0 +1,22 @@
+.type1 {
+    width: 160px;
+    height: 300px;
+    border: 2px solid black;
+}
+.type2 {
+    width: 340px;
+    height: 300px;
+    border: 2px solid black;
+}
+.type3 {
+    width: 170px;
+    height: 150px;
+    border: 2px solid black;
+}
+.type4 {
+    width: 540px;
+    height: 160px;
+    border: 2px solid black;
+}
+
+
