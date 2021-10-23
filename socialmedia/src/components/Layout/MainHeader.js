@@ -15,7 +15,7 @@ const MainHeader = (props) => {
 
         dispatch(authActions.toggle());
     };
-    console.log(isAuth)
+    
     return (
         <header className={classes.header}>
             <h1>SOCIAL MEDIA</h1>

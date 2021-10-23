@@ -1,0 +1,19 @@
+.grid {
+    text-align: center;
+    padding-top: 6rem;
+}
+.card {
+    display: grid;
+    margin: auto;
+    width: 60rem;
+    height: 40rem;
+    grid-template-columns: 60% 40%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.img {
+    background-color: blue;
+}
+.desc {
+    background-color: blueviolet;
+}
