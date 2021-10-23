@@ -1,30 +1,49 @@
-import { Fragment, useEffect } from 'react';
-import { getUser } from '../../../lib/api';
+import { Fragment, useEffect, useState } from 'react';
 import classes from './UserCard.module.css';
 
 const UserCard = () => {
-    useEffect(async() => {
-        const data = await getUser();
+    const [userList, setUserList] = useState([]);
 
-        for (const key in data) {
-            console.log('masuk')
-        }
-    }, [])
+    useEffect(() => {
+        const fetchUser = async () => {
+            const getUser = await fetch('https://jsonplaceholder.typicode.com/users');
+            const userJSON = await getUser.json();
+    
+            const userData = [];
 
+            for (const key in userJSON) {
+                userData.push({
+                    id: key,
+                    name: userJSON[key].name,
+                    username: userJSON[key].username,
+                    email: userJSON[key].email
+                });
+            } 
+            setUserList(userData)
+        };
+        fetchUser();
+    }, []);
+    
     return (
-        <Fragment>
-            <div className={classes.userCard}>
-                <div className={classes.grid}>
-                    <span><img /></span>
-                    <ul>
-                        <li>username: thoriqzs</li>
-                        <li>post: 29</li>
-                        <li>album: 12</li>
-                    </ul>
+    <Fragment>
+        {userList.map((user) => {
+            return (
+                <div key={user.id}>
+                    <div className={classes.userCard}>
+                        <div className={classes.grid}>
+                            <span><img /></span>
+                            <ul>
+                                <li>username: {user.username}</li>
+                                <li>name: {user.name}</li>
+                                <li>email: {user.email}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className={classes.garis}></div>
                 </div>
-            </div>
-            <div className={classes.garis}></div>
-        </Fragment>
+            )
+        })}
+    </Fragment>
     );
 };
 
