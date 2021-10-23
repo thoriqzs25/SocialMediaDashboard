@@ -1,7 +1,16 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
+import { getUser } from '../../../lib/api';
 import classes from './UserCard.module.css';
 
 const UserCard = () => {
+    useEffect(async() => {
+        const data = await getUser();
+
+        for (const key in data) {
+            console.log('masuk')
+        }
+    }, [])
+
     return (
         <Fragment>
             <div className={classes.userCard}>
