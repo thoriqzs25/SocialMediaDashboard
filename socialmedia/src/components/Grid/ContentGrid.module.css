@@ -1,13 +1,13 @@
 .grid {
     display: grid;
-    grid-template-columns: 27% 27% 27% 19%;
+    grid-template-columns: 25% 25% 25% 25%;
 }
 .content {
     grid-column: 1/4;
     border: 2px solid rgb(70, 70, 70);
 }
 .sidebar {
-    border: 2px solid blue;
+    background-color: #C14444;    
 }
 
 

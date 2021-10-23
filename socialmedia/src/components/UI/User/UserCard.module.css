@@ -1,3 +1,29 @@
 .userCard {
-
-};
+    
+}
+.grid {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 140px;
+}
+.grid span {
+    grid-column: 1/2;
+    background-color: red;
+    border-radius: 50%;
+    width: 74px;
+    height: 74px;
+    margin: auto;
+    margin-left: 36px;
+}
+.grid ul {
+    margin: auto 10px auto 0;
+    list-style: none;
+    color: whitesmoke;
+}
+.garis {
+    display: flex;
+    border: 2px solid #C4C4C4;
+    border-radius: 10px;
+    margin: auto;
+    width: 90%;
+}

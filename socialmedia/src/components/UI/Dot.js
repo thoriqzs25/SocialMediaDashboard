@@ -1,10 +1,9 @@
 import classes from './Dot.module.css';
-import user from '../../assets/user.png';
 
-const Dot = () => {
+const Dot = (props) => {
     return (
         <span className={classes.dot}>
-            <img alt="user_icon" src={user} />
+            <img alt={props.alt} src={props.item} />
         </span>
     );
 };

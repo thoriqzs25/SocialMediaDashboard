@@ -1,6 +1,10 @@
+import UserCard from "../UI/User/UserCard";
+
 const Sidebar = () => {
     return (
-        <div>SIDEBAR</div>
+        <div>
+            <UserCard />
+        </div>
     );
 };
 

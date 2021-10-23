@@ -1,6 +1,6 @@
 .dot {
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 45px;
     background-color: #D17171;
     border-radius: 50%;
     display: flex;
@@ -8,5 +8,5 @@
     align-items: center;
   }
 .dot img {
-    width: 21px;
+    width: 23px;
 }

@@ -1,6 +1,7 @@
 import Dot from '../UI/Dot';
 import Search from '../UI/Search';
 import classes from './MainHeader.module.css';
+import user from '../../assets/user.png';
 
 const MainHeader = (props) => {
     return (
@@ -9,7 +10,7 @@ const MainHeader = (props) => {
             <nav>
                 <ul>
                     <li><Search /></li>
-                    <li><Dot /></li>
+                    <li><Dot item={user} alt={"user_alt"}/></li>
                 </ul>
             </nav>
         </header>
