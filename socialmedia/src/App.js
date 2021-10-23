@@ -1,7 +1,9 @@
+import MainHeader from "./components/Layout/MainHeader";
+
 function App() {
   return (
     <div className="App">
-      <p>Hello World..</p>
+      <MainHeader />
     </div>
   );
 }

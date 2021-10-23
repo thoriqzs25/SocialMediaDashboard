@@ -1,0 +1,12 @@
+.dot {
+    height: 35px;
+    width: 35px;
+    background-color: #D17171;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.dot img {
+    width: 21px;
+}

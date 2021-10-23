@@ -1,0 +1,18 @@
+.search {
+    height: 30px;
+    width: 140px;
+    border-radius: 8px;
+    background-color: #FFC3C3;
+    padding: 0px 15px 0 15px;
+    margin-top: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search img {
+    width: 11px;
+}
+.search p {
+    font-size: 11px;
+    margin: 0 12px 2px 0;
+}
