@@ -1,33 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Card from "../../UI/Card";
 import Modal from "../../UI/Modal/Modal";
 import classes from './AlbumOverlay.module.css';
 
 const AlbumOverlay = (props) => {
     const [albumList, setAlbumList] = useState([]);
 
-    // useEffect(() => {
-    //     const fetchAlbum = async () => {
-    //         const getUser = await fetch('https://jsonplaceholder.typicode.com/users');
-    //         const userJSON = await getUser.json();
+    useEffect(() => {
+        const fetchAlbum = async () => {
+            const getAlbum = await fetch('https://jsonplaceholder.typicode.com/albums');
+            const albumJSON = await getAlbum.json();
     
-    //         const userData = [];
+            const albumData = [];
 
-    //         for (const key in userJSON) {
-    //             userData.push({
-    //                 id: key,
-    //                 name: userJSON[key].name,
-    //                 username: userJSON[key].username,
-    //                 email: userJSON[key].email
-    //             });
-    //         } 
-    //         setUserList(userData)
-    //     };
-    //     fetchUser();
-    // }, []);
+            for (const key in albumJSON) {
+                albumData.push({
+                    id: key,
+                    userId: albumJSON[key].userId,
+                    title: albumJSON[key].title
+                });
+            } 
+            setAlbumList(albumData)
+        };
+        fetchAlbum();
+    }, []);
     
     return (
         <Modal>
-            <div className={classes.album}></div>
+            <div className={classes.album}>
+                {albumList.map((album, index) => {
+                    return(
+                    <>
+                    {album.userId === 1 && 
+                    <Card>
+                        <p>index</p>
+                        <p>{album.title}</p>
+                    </Card>}
+                    </>)
+                })}
+            </div>
         </Modal>
     );
 };
