@@ -7,8 +7,8 @@ const authSlice = createSlice({
         toggle(state) {
             state.isAuthenticated = !state.isAuthenticated
         },
-        navigate(state, payload) {
-            state.currPage = payload
+        navigate(state, action) {
+            state.currPage = action.payload
         }
     }
 });

@@ -25,6 +25,14 @@ const MainHeader = (props) => {
         dispatch(authActions.navigate('album'))
     };
 
+    const homeToggle = (event) => {
+        event.preventDefault();
+
+        dispatch(authActions.toggle());
+        dispatch(authActions.navigate('home'));
+        console.log(currPage)
+    };
+
     return (
         <header className={classes.header}>
             {isAuth && 
@@ -44,11 +52,12 @@ const MainHeader = (props) => {
                     </li>}
                     <li><Search /></li>
                     {!isAuth && <li onClick={toggleHandler}><Dot item={user} alt={"user_alt"} /></li>}
-                    {isAuth && <li onClick={toggleHandler}>
+                    {isAuth && 
+                    <li onClick={homeToggle}>
                         <Link to='/'>
                             <Dot item={home} alt={"home_alt"} />
                         </Link>
-                        </li>}
+                    </li>}
                 </ul>
             </nav>
         </header>

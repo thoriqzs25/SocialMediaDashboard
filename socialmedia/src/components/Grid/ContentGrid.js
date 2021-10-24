@@ -13,7 +13,6 @@ const ContentGrid = () => {
     const isAuth = useSelector(state => state.auth.isAuthenticated);
     const isModal = useSelector(state => state.modal.isModal);
     const modalType = useSelector(state => state.modal.type);
-    console.log(modalType)
 
     return (
         <Fragment>
