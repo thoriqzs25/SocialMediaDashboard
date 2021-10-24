@@ -2,9 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import Card from "../../UI/Card";
 import Modal from "../../UI/Modal/Modal";
 import classes from './AlbumOverlay.module.css';
+import { useSelector } from "react-redux";
 
 const AlbumOverlay = (props) => {
     const [albumList, setAlbumList] = useState([]);
+    const userId = useSelector(state => state.user.userId)
      
     useEffect(() => {
         const fetchAlbum = async () => {
@@ -14,42 +16,44 @@ const AlbumOverlay = (props) => {
             const albumData = [];
             
             for (const key in albumJSON) {
-                albumData.push({
-                    id: key,
-                    userId: albumJSON[key].userId,
-                    title: albumJSON[key].title
-                });
+                if((albumJSON[key].userId)-1 == userId) {
+                    albumData.push({
+                        id: key,
+                        userId: albumJSON[key].userId,
+                        title: albumJSON[key].title
+                    });
+                }
             } 
             setAlbumList(albumData)
         };
         fetchAlbum();
     }, []);
 
+    console.log(albumList)
 
     const myRef = useRef();
         
     const executeScroll = () => {
         myRef.current.scrollIntoView({ behavior: 'smooth' })
     };
-
     
     return (
         <Modal>
             <div className={classes.album}>
                 {albumList.map((album, index) => {
                     return(
-                    <>
-                        {album.userId === 3 && index%10 === 0 &&
+                    <div>
+                        {index === 0 &&
                             <div key={album.id} ref={myRef}>
-                                <Card index={index} item={album.title}/>
+                                <Card item={album.title}/>
                             </div>
                         }
-                        {album.userId === 3 && index >= (album.userId*10)-9 &&
+                        {index >= 1 &&
                             <div key={album.id}>
-                                <Card index={index} item={album.title} />
+                                <Card item={album.title} />
                             </div>
                         }
-                    </>)
+                    </div>)
                 })}
                 <button onClick={executeScroll}> Click to scroll </button>
             </div>

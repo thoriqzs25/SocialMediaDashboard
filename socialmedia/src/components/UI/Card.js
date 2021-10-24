@@ -9,10 +9,6 @@ const Card = (props) => {
             <div className={classes.img}>
                 {props.item}
                 {props.children}
-                {modalType === 'album' && 
-                <div className={classes.index}>
-                    {props.index}
-                </div>}
             </div>
         </div>
     );

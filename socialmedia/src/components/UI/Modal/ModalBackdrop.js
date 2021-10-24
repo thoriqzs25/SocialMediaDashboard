@@ -16,4 +16,4 @@ const ModalBackdrop = (props) => {
     );
 };
 
-export default ModalBackdrop
+export default ModalBackdrop;

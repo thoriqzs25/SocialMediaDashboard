@@ -6,6 +6,7 @@ const modalSlice = createSlice({
     reducers: {
         toggle(state) {
             state.isModal = !state.isModal
+            state.type = ''
         },
         togglePostModal(state) {
             state.isModal = !state.isModal
