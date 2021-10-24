@@ -3,5 +3,11 @@
     background-color: white;
     display: grid;
     grid-template-columns: 33% 34% 33%;
-    grid-template-rows: auto;
+    grid-template-rows: 33% 34% 33%;
+    overflow-y: scroll;
+}
+.ref {
+    display: none;
+    width: 0;
+    height: 0;
 }
