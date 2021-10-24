@@ -34,7 +34,6 @@ const UserCard = () => {
     const userLoginHandler = (item) => {
         if(userId === -1) {
             dispatch(authActions.toggle())
-            console.log("masuk")
         }
 
         dispatch(userActions.changeUser({

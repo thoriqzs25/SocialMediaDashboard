@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { modalActions } from "../components/store/modal-slice";
+import Post from "../components/UI/Post/Post";
 import classes from './UserPage.module.css';
 
 const UserPage = () => {
@@ -19,9 +20,7 @@ const UserPage = () => {
 
     return (
     <div className={classes.container}>
-        <div onClick={togglePostHandler}>
-            post test
-        </div>
+        <Post />
         <button onClick={toggleAlbumHandler}>
             album test
         </button>
