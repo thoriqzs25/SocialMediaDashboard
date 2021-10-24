@@ -41,18 +41,12 @@ const AlbumOverlay = (props) => {
                     <div key={album.id}>
                         {album.userId === 1 && index === 0 &&
                             <div ref={myRef}>
-                                <Card>
-                                    <p>{index}</p>
-                                    <p>{album.title}</p>
-                                </Card>
+                                <Card index={index} item={album.title}/>
                             </div>
                         }
                         {album.userId === 1 && index >= 1 &&
                             <div>
-                                <Card>
-                                    <p>{index}</p>
-                                    <p>{album.title}</p>
-                                </Card>
+                                <Card index={index} item={album.title} />
                             </div>
                         }
                     </div>)
