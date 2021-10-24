@@ -20,9 +20,9 @@ const ContentGrid = () => {
             <div className={classes.grid}>
                 <div className={classes.content}>
                     {!isAuth && <Content />}
+                    {isAuth && <UserPage />}
                     {isAuth && isModal && modalType === 'post' && <PostOverlay />}
                     {isAuth && isModal && modalType === 'album' && <AlbumOverlay />}
-                    {isAuth && <UserPage />}
                 </div>
                 <div className={classes.sidebar}>
                     <Sidebar />
