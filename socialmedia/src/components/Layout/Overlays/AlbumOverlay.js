@@ -38,18 +38,18 @@ const AlbumOverlay = (props) => {
             <div className={classes.album}>
                 {albumList.map((album, index) => {
                     return(
-                    <div key={album.id}>
-                        {album.userId === 1 && index === 0 &&
-                            <div ref={myRef}>
+                    <>
+                        {album.userId === 3 && index%10 === 0 &&
+                            <div key={album.id} ref={myRef}>
                                 <Card index={index} item={album.title}/>
                             </div>
                         }
-                        {album.userId === 1 && index >= 1 &&
-                            <div>
+                        {album.userId === 3 && index >= (album.userId*10)-9 &&
+                            <div key={album.id}>
                                 <Card index={index} item={album.title} />
                             </div>
                         }
-                    </div>)
+                    </>)
                 })}
                 <button onClick={executeScroll}> Click to scroll </button>
             </div>
