@@ -1,10 +1,17 @@
 import ContentGrid from "./components/Grid/ContentGrid";
 import Layout from "./components/Layout/Layout";
+import AlbumPage from "./pages/AlbumPage";
+import { Route } from 'react-router-dom';
 
 function App() {
   return (
     <Layout>
-      <ContentGrid />
+      <Route path="/" exact>
+        <ContentGrid />
+      </Route>
+      <Route path="/album">
+        <AlbumPage />
+      </Route>
     </Layout>
   );
 }
