@@ -9,14 +9,15 @@ const AlbumItem = () => {
 
     useEffect(() => {
         const fetchPhoto = async () => {
-            const getPhoto = await fetch(`/albums/${iD}/photos`);
+            const getPhoto = await fetch('https://jsonplaceholder.typicode.com/albums/1/photos');
             const photoJSON = await getPhoto.json();
-    
             const photoData = [];
 
             for (const key in photoJSON) {
                 photoData.push({
+                    albumId: photoJSON[key].albumId,
                     id: key,
+                    title: photoJSON[key].title,
                     url: photoJSON[key].url
                 });
             } 
@@ -25,6 +26,7 @@ const AlbumItem = () => {
         fetchPhoto();
     }, []);
     
+    console.log(photoList)
     
     return (
         <div>

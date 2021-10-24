@@ -13,7 +13,7 @@ const UserCard = () => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const getUser = await fetch('/users');
+            const getUser = await fetch('https://jsonplaceholder.typicode.com/users');
             const userJSON = await getUser.json();
     
             const userData = [];
