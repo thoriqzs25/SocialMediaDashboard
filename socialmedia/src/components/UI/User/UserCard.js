@@ -3,10 +3,13 @@ import UserItem from './UserItem';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { userActions } from '../../store/user-slice';
+import { authActions } from '../../store/auth-slice';
+import { useSelector } from 'react-redux';
 
 const UserCard = () => {
     const [userList, setUserList] = useState([]);
     const dispatch = useDispatch();
+    const userId = useSelector(state => state.user.userId)
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -28,9 +31,18 @@ const UserCard = () => {
         fetchUser();
     }, []);
 
-    const userLoginHandler = (id) => {
-        console.log(id)
-        dispatch(userActions.changeUser(id))
+    const userLoginHandler = (item) => {
+        if(userId === -1) {
+            dispatch(authActions.toggle())
+            console.log("masuk")
+        }
+
+        dispatch(userActions.changeUser({
+            id: item.id,
+            name: item.name,
+            username: item.username,
+            email: item.email
+        }))
     };
 
     return (
@@ -43,7 +55,7 @@ const UserCard = () => {
                 name={val.name} 
                 username={val.username} 
                 email={val.email}
-                onLogin={userLoginHandler.bind(null, val.id)}/>
+                onLogin={userLoginHandler.bind(null, val)}/>
                 );
         })}
     </Fragment>

@@ -7,11 +7,14 @@ import album from '../../assets/album.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../store/auth-slice';
 import { Link } from 'react-router-dom';
+import { userActions } from '../store/user-slice';
 
 const MainHeader = (props) => {
     const dispatch = useDispatch();
     const isAuth = useSelector(state => state.auth.isAuthenticated);
     const currPage = useSelector(state => state.auth.currPage);
+    const nameLogin = useSelector(state => state.user.name)
+    const userId = useSelector(state => state.user.userId)
 
     const toggleHandler = (event) => {
         event.preventDefault();
@@ -33,6 +36,12 @@ const MainHeader = (props) => {
         console.log(currPage)
     };
 
+    const logoutHandler = (event) => {
+        event.preventDefault();
+
+        dispatch(userActions.logoutReducer())
+    };
+
     return (
         <header className={classes.header}>
             {isAuth && 
@@ -50,13 +59,24 @@ const MainHeader = (props) => {
                             <Dot item={album} alt={"album_alt"} />
                         </Link>
                     </li>}
+
                     <li><Search /></li>
-                    {!isAuth && <li onClick={toggleHandler}><Dot item={user} alt={"user_alt"} /></li>}
+
+                    {!isAuth && 
+                    <li onClick={toggleHandler}><Dot item={user} alt={"user_alt"} />
+                    </li>}
+
                     {isAuth && 
                     <li onClick={homeToggle}>
                         <Link to='/'>
                             <Dot item={home} alt={"home_alt"} />
                         </Link>
+                    </li>}
+
+                    {userId > -1 && <li>{nameLogin}</li>}
+                    {userId > -1 && 
+                    <li>
+                        <button onClick={logoutHandler}>LogOut</button>
                     </li>}
                 </ul>
             </nav>
