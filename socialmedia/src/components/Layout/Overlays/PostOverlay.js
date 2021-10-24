@@ -1,9 +1,10 @@
 import Modal from "../../UI/Modal/Modal";
-
+import classes from './PostOverlay.module.css';
 const PostOverlay = (props) => {
     return (
     <Modal>
-        <p>test</p>
+        <div className={classes.left}></div>
+        <div className={classes.right}></div>
     </Modal>
     );
 };

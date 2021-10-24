@@ -14,8 +14,8 @@ const ContentGrid = () => {
         <Fragment>
             <div className={classes.grid}>
                 <div className={classes.content}>
-                    <PostOverlay />
                     {!isAuth && <Content />}
+                    <PostOverlay />
                 </div>
                 <div className={classes.sidebar}>
                     <Sidebar />
