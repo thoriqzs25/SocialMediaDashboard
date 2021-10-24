@@ -4,16 +4,9 @@
 .subcontainer {
     margin: 2rem auto 0 auto;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 30vt 30vt;
-    width: 50%;
-    height: 50rem;
+    grid-template-columns: 30% 40% 30%;
+    width: 60%;
+    height: 100%;
     background-color: red;
     border: 2px solid blue;
-}
-.left {
-    grid-column: 1/2;
-}
-.right {
-    grid-column: 2/2;
 }

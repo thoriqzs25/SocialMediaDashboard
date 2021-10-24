@@ -28,9 +28,7 @@ const Album = () => {
 
     return (
         <div className={classes.container}>
-            <div className={classes.subcontainer}>
-                <AlbumItem photos={photoList}/>
-            </div>
+            <AlbumItem photos={photoList}/>
         </div>
     );
 };

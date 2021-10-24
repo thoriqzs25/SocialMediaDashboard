@@ -5,7 +5,7 @@
 }
 .grid span {
     grid-column: 1/2;
-    background-color: red;
+    background-color: rgb(95, 95, 95);
     border-radius: 50%;
     width: 74px;
     height: 74px;
@@ -23,4 +23,7 @@
     border-radius: 10px;
     margin: auto;
     width: 90%;
+}
+.grid img {
+    width: 100%;
 }
