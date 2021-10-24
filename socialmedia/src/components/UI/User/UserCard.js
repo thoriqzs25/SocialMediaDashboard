@@ -1,8 +1,12 @@
-import { Fragment, useEffect, useState } from 'react';
-import classes from './UserCard.module.css';
+import { Fragment } from 'react';
+import UserItem from './UserItem';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { userActions } from '../../store/user-slice';
 
 const UserCard = () => {
     const [userList, setUserList] = useState([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -24,24 +28,23 @@ const UserCard = () => {
         fetchUser();
     }, []);
 
+    const userLoginHandler = (id) => {
+        console.log(id)
+        dispatch(userActions.changeUser(id))
+    };
+
     return (
     <Fragment>
-        {userList.map((user) => {
+        {userList.map((val, index) => {
             return (
-                <div key={user.id} datakey={user.id}>
-                    <div className={classes.userCard}>
-                        <div className={classes.grid}>
-                            <span><img /></span>
-                            <ul>
-                                <li>username: {user.username}</li>
-                                <li>name: {user.name}</li>
-                                <li>email: {user.email}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className={classes.garis}></div>
-                </div>
-            )
+                <UserItem 
+                key={val.id}
+                id={val.id} 
+                name={val.name} 
+                username={val.username} 
+                email={val.email}
+                onLogin={userLoginHandler.bind(null, val.id)}/>
+                );
         })}
     </Fragment>
     );
