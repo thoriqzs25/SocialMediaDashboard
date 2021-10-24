@@ -1,40 +1,22 @@
-import { useParams } from "react-router";
 import Card from "../Card";
 import classes from './AlbumItem.module.css';
-import { useState, useEffect } from "react";
 
-const AlbumItem = () => {
-    const [photoList, setPhotoList] = useState([]);
-    const { iD } = useParams();
-
-    useEffect(() => {
-        const fetchPhoto = async () => {
-            const getPhoto = await fetch(`/albums/${iD}/photos`);
-            const photoJSON = await getPhoto.json();
-    
-            const photoData = [];
-
-            for (const key in photoJSON) {
-                photoData.push({
-                    id: key,
-                    url: photoJSON[key].url
-                });
-            } 
-            setPhotoList(photoData)
-        };
-        fetchPhoto();
-    }, []);
-    
-    
+const AlbumItem = (props) => {
+    const scrollUp = () => {
+        window.scrollTo(0, 0);
+    };
     return (
-        <div>
-            {photoList.map((photo, index) => {
+        <div className={classes.container}>
+            {props.photos.map((photo, index) => {
                 return (
-                    <div className={classes.container}>
-                        <Card img={photo.url} />
+                    <div className={classes.subcontainer}>
+                        <div className={classes.img}>
+                            {/* <img src={photo.url} />   */}
+                        </div>
                     </div>
                 );
             })}
+            <button onClick={scrollUp}>Scroll UP</button>
         </div>
     );
 };

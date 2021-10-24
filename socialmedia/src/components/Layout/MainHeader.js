@@ -75,8 +75,10 @@ const MainHeader = (props) => {
 
                     {userId > -1 && <li>{nameLogin}</li>}
                     {userId > -1 && 
-                    <li>
-                        <button onClick={logoutHandler}>LogOut</button>
+                    <li onClick={logoutHandler}>
+                        <Link to='/'>
+                            <button>LogOut</button>
+                        </Link>
                     </li>}
                 </ul>
             </nav>
