@@ -1,4 +1,3 @@
-import Card from "../Card";
 import classes from './AlbumItem.module.css';
 
 const AlbumItem = (props) => {
@@ -9,9 +8,9 @@ const AlbumItem = (props) => {
         <div className={classes.container}>
             {props.photos.map((photo, index) => {
                 return (
-                    <div className={classes.subcontainer}>
+                    <div className={classes.subcontainer} key={photo.id}>
                         <div className={classes.img}>
-                            <img src={photo.url} />  
+                            <img src={photo.url} alt={photo.title}/>  
                         </div>
                     </div>
                 );

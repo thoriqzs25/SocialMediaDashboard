@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import classes from './Modal.module.css';
 import ModalBackdrop from './ModalBackdrop';
 import OverlayCard from './OverlayCard';
 import { useSelector } from 'react-redux';

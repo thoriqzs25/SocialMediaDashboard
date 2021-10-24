@@ -26,7 +26,7 @@ const Album = () => {
             setPhotoList(photoData)
         };
         fetchPhoto();
-    }, []);
+    }, [iD]);
 
     console.log(photoList)
 

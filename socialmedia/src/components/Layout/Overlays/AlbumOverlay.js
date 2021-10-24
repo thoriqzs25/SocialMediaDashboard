@@ -17,7 +17,7 @@ const AlbumOverlay = (props) => {
             const albumData = [];
             
             for (const key in albumJSON) {
-                if((albumJSON[key].userId)-1 == userId) {
+                if((albumJSON[key].userId)-1 === Number(userId)) {
                     albumData.push({
                         id: albumJSON[key].id,
                         userId: albumJSON[key].userId,
@@ -28,7 +28,7 @@ const AlbumOverlay = (props) => {
             setAlbumList(albumData)
         };
         fetchAlbum();
-    }, []);
+    }, [userId]);
 
     console.log(albumList)
 
@@ -44,14 +44,14 @@ const AlbumOverlay = (props) => {
             <div className={classes.album}>
                 {albumList.map((album, index) => {
                     return(
-                    <Link to={`/albums/${(album.id)}/photos`}>
+                    <Link to={`/albums/${(album.id)}/photos`} key={album.id}>
                         {index === 0 &&
-                            <div key={album.id} ref={myRef}>
+                            <div ref={myRef}>
                                 <Card item={album.title}/>
                             </div>
                         }
                         {index >= 1 &&
-                            <div key={album.id}>
+                            <div>
                                 <Card item={album.title} />
                             </div>
                         }

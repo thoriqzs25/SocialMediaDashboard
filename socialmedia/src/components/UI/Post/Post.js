@@ -15,7 +15,7 @@ const Post = () => {
             const postData = [];
 
             for (const key in postJSON) {
-                if((postJSON[key].userId)-1 == userId) {
+                if((postJSON[key].userId)-1 === Number(userId)) {
                     postData.push({
                         userId: postJSON[key].userId,
                         id: key,
