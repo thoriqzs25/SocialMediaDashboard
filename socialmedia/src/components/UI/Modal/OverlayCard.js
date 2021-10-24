@@ -1,14 +1,13 @@
 import classes from './OverlayCard.module.css';
 
-const OverLay = (props) => {
+const OverlayCard = (props) => {
     return (
         <div className={classes.grid}>
             <div className={classes.card}>
-                <div className={classes.img}></div>
-                <div className={classes.desc}>{props.item}</div>
+                {props.children}
             </div>
         </div>
     );
 };
 
-export default OverLay;
+export default OverlayCard;

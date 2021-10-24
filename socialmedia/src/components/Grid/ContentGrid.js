@@ -3,7 +3,9 @@ import Content from "../Layout/Content";
 import Sidebar from "../Layout/Sidebar";
 import classes from './ContentGrid.module.css';
 import { useSelector } from 'react-redux';
-import OverLay from "../UI/OverlayCard";
+
+import PostOverlay from "../Layout/Overlays/PostOverlay";
+
 
 const ContentGrid = () => {
     const isAuth = useSelector(state => state.auth.isAuthenticated)
@@ -12,8 +14,8 @@ const ContentGrid = () => {
         <Fragment>
             <div className={classes.grid}>
                 <div className={classes.content}>
+                    <PostOverlay />
                     {!isAuth && <Content />}
-                    {isAuth && <OverLay />}
                 </div>
                 <div className={classes.sidebar}>
                     <Sidebar />
