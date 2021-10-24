@@ -24,17 +24,11 @@ const UserCard = () => {
         fetchUser();
     }, []);
 
-    const userLoginHandler = (event, key) => {
-        event.preventDefault();
-
-        console.log(event)
-    };
-    
     return (
     <Fragment>
         {userList.map((user) => {
             return (
-                <div key={user.id} datakey={user.id} onClick={userLoginHandler}>
+                <div key={user.id} datakey={user.id}>
                     <div className={classes.userCard}>
                         <div className={classes.grid}>
                             <span><img /></span>
