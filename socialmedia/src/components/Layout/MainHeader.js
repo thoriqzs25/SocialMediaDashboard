@@ -10,14 +10,21 @@ import { Link } from 'react-router-dom';
 
 const MainHeader = (props) => {
     const dispatch = useDispatch();
-
     const isAuth = useSelector(state => state.auth.isAuthenticated);
+    const currPage = useSelector(state => state.auth.currPage);
+
     const toggleHandler = (event) => {
         event.preventDefault();
 
         dispatch(authActions.toggle());
     };
-    
+
+    const albumToggle = (event) => {
+        event.preventDefault();
+
+        dispatch(authActions.navigate('album'))
+    };
+
     return (
         <header className={classes.header}>
             {isAuth && 
@@ -29,6 +36,12 @@ const MainHeader = (props) => {
             {!isAuth && <div><h1>SOCIAL MEDIA</h1></div>}
             <nav>
                 <ul>
+                    {isAuth && currPage === 'home' &&
+                    <li onClick={albumToggle}>
+                        <Link to='/album'>
+                            <Dot item={album} alt={"album_alt"} />
+                        </Link>
+                    </li>}
                     <li><Search /></li>
                     {!isAuth && <li onClick={toggleHandler}><Dot item={user} alt={"user_alt"} /></li>}
                     {isAuth && <li onClick={toggleHandler}>
@@ -36,12 +49,6 @@ const MainHeader = (props) => {
                             <Dot item={home} alt={"home_alt"} />
                         </Link>
                         </li>}
-                    {isAuth && 
-                    <li>
-                        <Link to='/album'>
-                            <Dot item={album} alt={"album_alt"} />
-                        </Link>
-                    </li>}
                 </ul>
             </nav>
         </header>

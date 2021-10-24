@@ -2,10 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const authSlice = createSlice({
     name: 'auth',
-    initialState: { isAuthenticated: false },
+    initialState: { isAuthenticated: false, currPage: 'home' },
     reducers: {
         toggle(state) {
             state.isAuthenticated = !state.isAuthenticated
+        },
+        navigate(state, payload) {
+            state.currPage = payload
         }
     }
 });

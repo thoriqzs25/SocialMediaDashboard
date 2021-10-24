@@ -1,5 +1,11 @@
+import Album from "../components/UI/AlbumItem/Album";
+
 const AlbumPage = () => {
-    return (<p>qikluq album</p>);
+    return (
+        <div>
+           <Album />
+        </div>
+    );
 };
 
 export default AlbumPage;

@@ -1,8 +1,9 @@
 import UserCard from "../UI/User/UserCard";
+import classes from './Sidebar.module.css';
 
 const Sidebar = () => {
     return (
-        <div>
+        <div className={classes.sider}>
             <UserCard />
         </div>
     );

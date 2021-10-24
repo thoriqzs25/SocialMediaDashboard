@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { modalActions } from "../components/store/modal-slice";
+import classes from './UserPage.module.css';
 
 const UserPage = () => {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const UserPage = () => {
     };
 
     return (
-    <div>
+    <div className={classes.container}>
         <button onClick={togglePostHandler}>
             post test
         </button>
