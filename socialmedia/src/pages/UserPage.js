@@ -19,9 +19,9 @@ const UserPage = () => {
 
     return (
     <div className={classes.container}>
-        <button onClick={togglePostHandler}>
+        <div onClick={togglePostHandler}>
             post test
-        </button>
+        </div>
         <button onClick={toggleAlbumHandler}>
             album test
         </button>
