@@ -9,7 +9,7 @@ function App() {
       <Route path="/" exact>
         <ContentGrid />
       </Route>
-      <Route path="/album">
+      <Route path="/albums/:iD">
         <AlbumPage />
       </Route>
     </Layout>

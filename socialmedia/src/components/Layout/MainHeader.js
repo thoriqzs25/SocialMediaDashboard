@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../store/auth-slice';
 import { Link } from 'react-router-dom';
 import { userActions } from '../store/user-slice';
+import { modalActions } from '../store/modal-slice';
 
 const MainHeader = (props) => {
     const dispatch = useDispatch();
@@ -42,6 +43,12 @@ const MainHeader = (props) => {
         dispatch(userActions.logoutReducer())
     };
 
+    const albumModalToggle = (event) => {
+        event.preventDefault();
+
+        dispatch(modalActions.toggleAlbumModal())
+    };
+
     return (
         <header className={classes.header}>
             {isAuth && 
@@ -54,10 +61,8 @@ const MainHeader = (props) => {
             <nav>
                 <ul>
                     {isAuth && currPage === 'home' &&
-                    <li onClick={albumToggle}>
-                        <Link to='/album'>
-                            <Dot item={album} alt={"album_alt"} />
-                        </Link>
+                    <li onClick={albumModalToggle}>
+                        <Dot item={album} alt={"album_alt"} />
                     </li>}
 
                     <li><Search /></li>

@@ -11,7 +11,7 @@ const AlbumItem = (props) => {
                 return (
                     <div className={classes.subcontainer}>
                         <div className={classes.img}>
-                            {/* <img src={photo.url} />   */}
+                            <img src={photo.url} />  
                         </div>
                     </div>
                 );

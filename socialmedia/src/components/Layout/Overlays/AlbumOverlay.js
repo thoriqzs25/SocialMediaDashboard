@@ -3,11 +3,12 @@ import Card from "../../UI/Card";
 import Modal from "../../UI/Modal/Modal";
 import classes from './AlbumOverlay.module.css';
 import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 
 const AlbumOverlay = (props) => {
     const [albumList, setAlbumList] = useState([]);
     const userId = useSelector(state => state.user.userId)
-     
+      
     useEffect(() => {
         const fetchAlbum = async () => {
             const getAlbum = await fetch('https://jsonplaceholder.typicode.com/albums');
@@ -18,7 +19,7 @@ const AlbumOverlay = (props) => {
             for (const key in albumJSON) {
                 if((albumJSON[key].userId)-1 == userId) {
                     albumData.push({
-                        id: key,
+                        id: albumJSON[key].id,
                         userId: albumJSON[key].userId,
                         title: albumJSON[key].title
                     });
@@ -37,12 +38,13 @@ const AlbumOverlay = (props) => {
         myRef.current.scrollIntoView({ behavior: 'smooth' })
     };
     
+
     return (
         <Modal>
             <div className={classes.album}>
                 {albumList.map((album, index) => {
                     return(
-                    <div>
+                    <Link to={`/albums/${(album.id)}/photos`}>
                         {index === 0 &&
                             <div key={album.id} ref={myRef}>
                                 <Card item={album.title}/>
@@ -53,7 +55,7 @@ const AlbumOverlay = (props) => {
                                 <Card item={album.title} />
                             </div>
                         }
-                    </div>)
+                    </Link>)
                 })}
                 <button onClick={executeScroll}> Click to scroll </button>
             </div>
