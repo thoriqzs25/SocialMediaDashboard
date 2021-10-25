@@ -3,6 +3,16 @@
     background-color: aquamarine;
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: 33% 34% 33%;
+    grid-template-rows: auto auto auto auto;
     overflow-y: scroll;
+}
+.subcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+.subcontainer button {
+    width: 90%;
+    height: 20%;
 }

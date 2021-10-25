@@ -6,16 +6,15 @@
     display: grid;
     margin: auto;
     grid-template-columns: 60% 40%;
-    border: 2px solid black;
-    border-radius: 10px;
     height: 40rem;
     width: 60rem;
     
 }
 .modal {
+    border-radius: 10px;
     position: fixed;
-    left: 12%;
-    top: 12rem;
+    left: 15%;
+    top: 10%;
     z-index: 100;
     overflow: hidden;
 }

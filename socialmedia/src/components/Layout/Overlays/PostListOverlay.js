@@ -47,15 +47,19 @@ const PostListOverlay = (props) => {
             <div className={classes.container}>
             {postsList.map((post, index) => {
                 return (
+                    <div className={classes.subcontainer}>
                         <PostListItem 
                         myRef={myRef} 
                         index={index} 
                         title={post.title} 
                         key={post.id}
                         onPicked={postPickHandler.bind(null, post)}/>
+                    </div>
                 )
             })}
-            <button onClick={executeScroll}> Click to scroll </button>
+            <div className={classes.subcontainer}>
+                <button onClick={executeScroll}> Click to scroll </button>
+            </div>
             </div>
         </Modal>
     );

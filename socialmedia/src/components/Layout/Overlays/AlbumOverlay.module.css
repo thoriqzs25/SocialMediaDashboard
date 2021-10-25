@@ -3,6 +3,17 @@
     background-color: white;
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: 33% 34% 33%;
+    grid-template-rows: auto auto auto auto;
     overflow-y: scroll;
+
+}
+.albumitem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+.albumitem button {
+    width: 90%;
+    height: 20%;
 }

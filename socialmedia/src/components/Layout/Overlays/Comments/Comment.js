@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import classes from './Comment.module.css';
 
 const Comment = (props) => {

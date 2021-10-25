@@ -32,8 +32,6 @@ const AlbumOverlay = (props) => {
         fetchAlbum();
     }, [userId]);
 
-    console.log(albumList)
-
     const myRef = useRef();
         
     const executeScroll = () => {
@@ -51,7 +49,7 @@ const AlbumOverlay = (props) => {
             <div className={classes.album}>
                 {albumList.map((album, index) => {
                     return(
-                        <div onClick={albumPickHanlder}>
+                        <div className={classes.albumitem} onClick={albumPickHanlder}>
                             <Link to={`/albums/${(album.id)}/photos`} key={album.id}>
                                 {index === 0 &&
                                     <div ref={myRef}>
@@ -66,7 +64,9 @@ const AlbumOverlay = (props) => {
                             </Link>
                         </div>)
                 })}
-                <button onClick={executeScroll}> Click to scroll </button>
+                <div className={classes.albumitem}>
+                    <button onClick={executeScroll}> Click to scroll </button>
+                </div>
             </div>
         </Modal>
     );

@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { modalActions } from "../components/store/modal-slice";
+import AlbumThumb from "../components/UI/AlbumItem/Album/AlbumThumb";
 import Post from "../components/UI/Post/Post";
 import classes from './UserPage.module.css';
 
@@ -28,7 +29,7 @@ const UserPage = () => {
             </button>
         </div>
         <p>Album</p>
-        <div><p>album</p></div>
+        <AlbumThumb />
         <div className={classes.buttoncont}>
             <button onClick={toggleAlbumHandler}>
                 album test
