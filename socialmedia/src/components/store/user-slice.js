@@ -12,6 +12,9 @@ const userSlice = createSlice({
         },
         logoutReducer(state) {
             state.userId = -1
+            state.name = ''
+            state.username = ''
+            state.email = ''
         }
     }
 });

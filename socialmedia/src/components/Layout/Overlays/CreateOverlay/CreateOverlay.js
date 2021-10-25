@@ -1,9 +1,11 @@
 import Modal from "../../../UI/Modal/Modal";
 import classes from './CreateOverlay.module.css';
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { modalActions } from "../../../store/modal-slice";
 
 const CreateOverlay = (props) => {
+    const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const userId = useSelector(state => state.user.userId)
@@ -38,6 +40,7 @@ const CreateOverlay = (props) => {
             .then((json) => console.log(json));
 
         console.log(title, body)
+        dispatch(modalActions.toggle())
     };
 
     return (

@@ -8,6 +8,11 @@ const Post = () => {
     const dispatch = useDispatch();
     const [postsList, setPhotoList] = useState([]);
     const userId = useSelector(state => state.user.userId)
+    const name = useSelector(state => state.user.name)
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -16,19 +21,40 @@ const Post = () => {
 
             const postData = [];
 
-            for (const key in postJSON) {
-                if((postJSON[key].userId)-1 === Number(userId)) {
-                    postData.push({
-                        userId: postJSON[key].userId,
-                        id: postJSON[key].id,
-                        title: postJSON[key].title,
-                        body: postJSON[key].body
-                })}
+            if(name === '') { //kalau belom ada user berarti output random
+                for (let i = 0; i < 5; i++) {
+                    let id = getRandomInt(100);
+                    console.log(id)
+                    for (const key in postJSON) {  
+                        if (postJSON[key].id === id) {              
+                            postData.push({
+                                userId: postJSON[key].userId,
+                                id: postJSON[key].id,
+                                title: postJSON[key].title,
+                                body: postJSON[key].body
+                            });
+                        }
+                    }
+                }
             } 
+            else {
+                for (let i = 0; i < 5; i++) {
+                    for (const key in postJSON) {
+                        if((postJSON[key].userId)-1 === Number(userId)) {
+                            postData.push({
+                                userId: postJSON[key].userId,
+                                id: postJSON[key].id,
+                                title: postJSON[key].title,
+                                body: postJSON[key].body
+                            })
+                        }
+                    }
+                }
+            }
             setPhotoList(postData)
         };
         fetchPost();
-    }, [userId]);
+    }, [userId, name]);
     
     const postHandler = (post) => {
         dispatch(modalActions.switchTogglePostModal({post: post, type: 'post'}))

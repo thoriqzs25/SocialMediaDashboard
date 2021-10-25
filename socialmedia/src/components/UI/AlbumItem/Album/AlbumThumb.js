@@ -10,6 +10,10 @@ const AlbumThumb = (props) => {
     const [albumList, setAlbumList] = useState([]);
     const userId = useSelector(state => state.user.userId)
       
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
     useEffect(() => {
         const fetchAlbum = async () => {
             const getAlbum = await fetch('https://jsonplaceholder.typicode.com/albums');
@@ -17,15 +21,32 @@ const AlbumThumb = (props) => {
             
             const albumData = [];
             
-            for (const key in albumJSON) {
-                if((albumJSON[key].userId)-1 === Number(userId)) {
-                    albumData.push({
-                        id: albumJSON[key].id,
-                        userId: albumJSON[key].userId,
-                        title: albumJSON[key].title
-                    });
+            if(userId === -1){
+                for (let i = 0; i < 6; i++) {
+                    let id = getRandomInt(100);
+                    for (const key in albumJSON) {
+                        if((albumJSON[key].id)-1 === id) {
+                            albumData.push({
+                                id: albumJSON[key].id,
+                                userId: albumJSON[key].userId,
+                                title: albumJSON[key].title
+                            });
+                        }
+                    } 
                 }
-            } 
+            }
+            else {
+                for (const key in albumJSON) {
+                    if((albumJSON[key].userId)-1 === Number(userId)) {
+                        console.log('masuk')
+                        albumData.push({
+                            id: albumJSON[key].id,
+                            userId: albumJSON[key].userId,
+                            title: albumJSON[key].title
+                        });
+                    }
+                } 
+            }
             setAlbumList(albumData)
         };
         fetchAlbum();
