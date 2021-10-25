@@ -36,34 +36,42 @@ const MainHeader = (props) => {
 
     return (
         <header className={classes.header}>
-            {isAuth && 
+
+            {isAuth ?
             <div onClick={toggleHandler}>
                 <Link to='/'>
                     <h1>SOCIAL MEDIA</h1>
                 </Link>
+            </div> 
+            :
+            <div>
+                <h1>SOCIAL MEDIA</h1>
             </div>}
-            {!isAuth && <div><h1>SOCIAL MEDIA</h1></div>}
+
             <nav>
                 <ul>
-                    {currPage === 'home' ? <li><Search /></li> : <></>}
-                    {!isAuth && 
-                    <li onClick={toggleHandler}><Dot item={user} alt={"user_alt"} />
-                    </li>}
+                    {userId > 0 && <li><p>{nameLogin}</p></li>}
 
-                    {isAuth && 
-                    <li onClick={homeToggle}>
-                        <Link to='/'>
-                            <Dot item={home} alt={"home_alt"} />
-                        </Link>
-                    </li>}
-
-                    {userId > -1 && <li>{nameLogin}</li>}
-                    {userId > -1 && 
+                    {userId > 0 && 
                     <li onClick={logoutHandler}>
                         <Link to='/'>
                             <button>LogOut</button>
                         </Link>
                     </li>}
+
+                    {currPage === 'home' && <li><Search /></li>}
+                    
+                    {isAuth ?
+                    <li onClick={homeToggle}>
+                        <Link to='/'>
+                            <Dot item={home} alt={"home_alt"} />
+                        </Link>
+                    </li>
+                    :
+                    <li onClick={toggleHandler}>
+                        <Dot item={user} alt={"user_alt"} />
+                    </li>}
+
                 </ul>
             </nav>
         </header>

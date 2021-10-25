@@ -23,7 +23,7 @@ const AlbumThumb = (props) => {
                 for (let i = 0; i < 6; i++) {
                     let id = getRandomInt(100);
                     for (const key in albumJSON) {
-                        if((albumJSON[key].id)-1 === id) {
+                        if((albumJSON[key].id) === id) {
                             albumData.push({
                                 id: albumJSON[key].id,
                                 userId: albumJSON[key].userId,
@@ -35,7 +35,7 @@ const AlbumThumb = (props) => {
             }
             else {
                 for (const key in albumJSON) {
-                    if((albumJSON[key].userId)-1 === Number(userId)) {
+                    if((albumJSON[key].userId) === Number(userId)) {
                         albumData.push({
                             id: albumJSON[key].id,
                             userId: albumJSON[key].userId,

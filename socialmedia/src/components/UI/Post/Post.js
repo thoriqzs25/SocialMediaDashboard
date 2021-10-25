@@ -39,7 +39,7 @@ const Post = () => {
             else {
                 for (let i = 0; i < 5; i++) {
                     for (const key in postJSON) {
-                        if((postJSON[key].userId)-1 === Number(userId)) {
+                        if(postJSON[key].userId === Number(userId)) {
                             postData.push({
                                 userId: postJSON[key].userId,
                                 id: postJSON[key].id,
@@ -60,7 +60,6 @@ const Post = () => {
     };
     
     const createHandler = () => {
-        console.log("create")
         dispatch(modalActions.switchCreatePost('create'));
     };
 

@@ -24,7 +24,7 @@ const CreateOverlay = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(`https://jsonplaceholder.typicode.com/posts/${userId}`, {
+        fetch(`https://jsonplaceholder.typicode.com/posts`, {
             method: 'POST',
             body: JSON.stringify({
                 userId: userId,
@@ -39,7 +39,6 @@ const CreateOverlay = (props) => {
             .then((response) => response.json())
             .then((json) => console.log(json));
 
-        console.log(`CREATED POST FOR USERID: ${userId}, TITLE: ${title}, CAPTION: ${body}`)
         dispatch(modalActions.toggle())
     };
 
