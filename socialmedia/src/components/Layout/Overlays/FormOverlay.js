@@ -33,23 +33,25 @@ const FormOverlay = (props) => {
                 <li>
                     <label>
                         Name: 
-                        <input type='text' name='name' value={name} onChange={onChangeHandler}></input>
-                    </label>
+                    </label><br />
+                    <input type='text' name='name' value={name} onChange={onChangeHandler}></input>
                 </li>
                 <li>
                     <label>
                         Email: 
-                        <input type='text' name='email' value={email} onChange={onChangeHandler}></input>
-                    </label>
+                    </label><br />
+                    <input type='text' name='email' value={email} onChange={onChangeHandler}></input>
                 </li>
-                <li>
+                <li className={classes.comment}>
                     <label>
                         Comment: 
-                        <input type='text' name='comment' value={comment} onChange={onChangeHandler}></input>
-                    </label>
+                    </label><br />
+                    <textarea name='comment' value={comment} onChange={onChangeHandler}></textarea>
                 </li>
             </ul>
-            <button>Submit</button>
+            <div className={classes.submit}>
+                <button>Submit</button>
+            </div>
         </form>
     );
 };

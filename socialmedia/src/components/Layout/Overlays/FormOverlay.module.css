@@ -4,3 +4,10 @@
 .form ul {
     list-style: none;
 }
+.comment textarea {
+    width: 80%;
+    height: 100px;
+}
+.submit {
+    text-align: center;
+}
