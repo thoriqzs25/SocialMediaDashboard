@@ -11,6 +11,10 @@ const PostOverlay = (props) => {
 
     const post = useSelector(state => state.modal.post)
 
+    const doneHandler = () => {
+        setAddComment(false);
+    };
+
     const addCommentHandler = () => {
         setAddComment(true);
     };
@@ -22,7 +26,7 @@ const PostOverlay = (props) => {
         </div>
         <div className={classes.right}>
         {addComment ?  
-            <FormOverlay/>
+            <FormOverlay userId={post.id} comment={doneHandler}/>
         : 
             <>
                 <p>{post.body}</p>

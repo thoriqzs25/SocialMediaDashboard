@@ -16,7 +16,7 @@ const Comment = (props) => {
                 commentData.push({
                     postId: commentJSON[key].postId,
                     id: commentJSON[key].id,
-                    title: commentJSON[key].name,
+                    name: commentJSON[key].name,
                     email: commentJSON[key].email,
                     body: commentJSON[key].body
                 })

@@ -5,9 +5,8 @@ import { useState } from "react";
 const FormOverlay = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [comment, setComment] = useState('');
-    const [postId, setPostId] = useState(0);
-    const [id, setId] = useState(0);
+    const [comment, setComment] = useState(''); //body
+    const postId = props.postId;
 
     const onChangeHandler = (e) => {
         switch(e.target.name) {
@@ -24,7 +23,26 @@ const FormOverlay = (props) => {
 
     const onSubmitHandler  = (e) => {
         e.preventDefault();
-        console.log(name, email, comment)
+
+        fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, {
+        method: 'POST',
+        body: JSON.stringify({
+            postId: postId,
+            id: Math.random(),
+            name: name,
+            email: email,
+            body: comment,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        })
+
+        console.log(name, email, comment);
+        setName('');
+        setEmail('');
+        setComment('');
+        props.comment()
     };
 
     return (
