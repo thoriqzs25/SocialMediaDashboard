@@ -30,6 +30,10 @@ const modalSlice = createSlice({
         },
         switchAddPostComment(state, action) {
             state.type = action.payload
+        },
+        switchCreatePost(state, action) {
+            state.isModal = true
+            state.type = action.payload
         }
     }
 });

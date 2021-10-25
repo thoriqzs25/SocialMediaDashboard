@@ -34,6 +34,11 @@ const Post = () => {
         dispatch(modalActions.switchTogglePostModal({post: post, type: 'post'}))
     };
     
+    const createHandler = () => {
+        console.log("create")
+        dispatch(modalActions.switchCreatePost('create'));
+    };
+
     return (
         <div className={classes.container}>
             {postsList.slice(0, 5).map((val,index) => {
@@ -47,7 +52,7 @@ const Post = () => {
                     </div>
                 )
             })}
-            <div className={classes.subcontainer}>
+            <div className={classes.subcontainer} onClick={createHandler}>
                 <div className={classes.grid}>
                     <PostItem title='+'/>
                 </div>

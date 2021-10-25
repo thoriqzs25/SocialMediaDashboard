@@ -1,0 +1,15 @@
+.card {
+    margin: auto;
+    height: 24rem;
+    width: 20rem;
+    background-color: white;
+    border-radius: 10px;
+}
+.modal {
+    border-radius: 10px;
+    position: fixed;
+    left: 15%;
+    top: 10%;
+    z-index: 100;
+    overflow: hidden;
+}

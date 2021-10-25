@@ -1,0 +1,10 @@
+.container {
+    width: 80%;
+    height: 90%;
+    text-align: left;
+    margin: auto;
+    padding-top: 3rem;
+}
+.container input {
+    width: 70%;
+}
