@@ -4,6 +4,12 @@
     padding: 2rem 3rem;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 33% 34% 33%;
+    border: 3px solid red;
+    overflow-y: hidden;
+}
+.satu, .dua, .tiga, .empat, .lima {
+    width: 90%;
+    height: 93%; 
 }
 .satu {
     background-color: #008000;
@@ -27,6 +33,7 @@
     border-radius: 10px;
 }
 .empat {
+    width: 97%;
     background-color: indianred;
     grid-row: 3/3;
     grid-column: 1/4;

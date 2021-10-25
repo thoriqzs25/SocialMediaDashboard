@@ -1,8 +1,10 @@
 import classes from './Type.module.css';
 
-const Type3 = () => {
+const Type3 = (props) => {
     return (
-        <div className={classes.type3}></div>
+        <div className={`${classes.type3} ${classes.type}`}>
+            {props.children}
+        </div>
     );
 };
 

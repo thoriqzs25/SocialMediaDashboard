@@ -23,11 +23,6 @@ const MainHeader = (props) => {
         dispatch(authActions.toggle());
     };
 
-    // const albumToggle = (event) => {
-    //     event.preventDefault();
-
-    //     dispatch(authActions.navigate('album'))
-    // };
 
     const homeToggle = (event) => {
         event.preventDefault();
