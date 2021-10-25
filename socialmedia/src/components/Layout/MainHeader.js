@@ -17,6 +17,7 @@ const MainHeader = (props) => {
     const nameLogin = useSelector(state => state.user.name)
     const userId = useSelector(state => state.user.userId)
     console.log(userId)
+    console.log(currPage)
     const toggleHandler = (event) => {
         event.preventDefault();
 
@@ -27,21 +28,14 @@ const MainHeader = (props) => {
     const homeToggle = (event) => {
         event.preventDefault();
 
-        dispatch(authActions.toggle());
+        dispatch(authActions.togglePage1());
         dispatch(authActions.navigate('home'));
-        console.log(currPage)
     };
 
     const logoutHandler = (event) => {
         event.preventDefault();
 
         dispatch(userActions.logoutReducer())
-    };
-
-    const albumModalToggle = (event) => {
-        event.preventDefault();
-
-        dispatch(modalActions.toggleAlbumModal())
     };
 
     return (
@@ -55,11 +49,6 @@ const MainHeader = (props) => {
             {!isAuth && <div><h1>SOCIAL MEDIA</h1></div>}
             <nav>
                 <ul>
-                    {/* {isAuth && currPage === 'home' &&
-                    <li onClick={albumModalToggle}>
-                        <Dot item={album} alt={"album_alt"} />
-                    </li>} */}
-
                     <li><Search /></li>
 
                     {!isAuth && 

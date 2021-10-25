@@ -1,0 +1,10 @@
+.left {
+    background-color: rgb(253, 253, 253);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right {
+    background-color: rgb(185, 179, 179);
+    overflow-y: scroll;
+}

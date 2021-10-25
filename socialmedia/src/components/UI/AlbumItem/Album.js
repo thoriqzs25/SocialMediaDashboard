@@ -7,8 +7,6 @@ const Album = () => {
     const [photoList, setPhotoList] = useState([]);
     const { iD } = useParams();
 
-    console.log(iD)
-
     useEffect(() => {
         const fetchPhoto = async () => {
             const getPhoto = await fetch(`https://jsonplaceholder.typicode.com/albums/${iD}/photos`);
@@ -27,8 +25,6 @@ const Album = () => {
         };
         fetchPhoto();
     }, [iD]);
-
-    console.log(photoList)
 
     return (
         <div className={classes.container}>

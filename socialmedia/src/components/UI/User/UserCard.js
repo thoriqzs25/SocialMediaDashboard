@@ -11,7 +11,6 @@ const UserCard = () => {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.user.userId)
     const search = useSelector(state => state.search.search)
-    console.log(search)
 
 
     useEffect(() => {
@@ -36,11 +35,8 @@ const UserCard = () => {
 
     const userLoginHandler = (item) => {
         if(userId === -1) { //kalau belom login -> ketika login langusng redirect ke post sm album page
-            console.log('masuk')
             dispatch(authActions.toggle())
         }
-        console.log('masuk')
-        console.log(item)
         dispatch(userActions.changeUser({
             id: item.id,
             name: item.name,
@@ -50,7 +46,6 @@ const UserCard = () => {
     };
 
     const filterSearch = userList.filter(val => {
-        console.log(val.name, search.toLowerCase())
         return val.name.toLowerCase().includes(search.toLowerCase())
     })
 

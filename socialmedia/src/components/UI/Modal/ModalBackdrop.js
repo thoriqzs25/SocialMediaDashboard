@@ -8,7 +8,7 @@ const ModalBackdrop = (props) => {
     const toggleHanlder = (event) => {
         event.preventDefault();
 
-        dispatch(modalActions.toggle());
+        dispatch(modalActions.toggle())
     };
     
     return (

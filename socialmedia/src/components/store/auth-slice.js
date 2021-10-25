@@ -5,7 +5,10 @@ const authSlice = createSlice({
     initialState: { isAuthenticated: false, currPage: 'home' },
     reducers: {
         toggle(state) {
-            state.isAuthenticated = !state.isAuthenticated
+            state.isAuthenticated = true
+        },
+        togglePage1(state) {
+            state.isAuthenticated = false
         },
         navigate(state, action) {
             state.currPage = action.payload
