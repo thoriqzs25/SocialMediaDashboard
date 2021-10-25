@@ -37,12 +37,13 @@ const FormOverlay = (props) => {
             'Content-type': 'application/json; charset=UTF-8',
         },
         })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
 
-        console.log(name, email, comment);
         setName('');
         setEmail('');
         setComment('');
-        props.comment()
+        props.comment();
     };
 
     return (
