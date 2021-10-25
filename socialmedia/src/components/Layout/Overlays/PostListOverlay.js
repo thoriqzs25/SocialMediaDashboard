@@ -39,7 +39,6 @@ const PostListOverlay = (props) => {
     };
 
     const postPickHandler = (post) => {
-        console.log(post)
         dispatch(modalActions.switchPostModal({post: post, type: 'post'}))
     }
 

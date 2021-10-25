@@ -22,7 +22,12 @@ const modalSlice = createSlice({
         switchPostModal(state, action) {
             state.type = action.payload.type
             state.post = action.payload.post
-        }
+        },
+        switchTogglePostModal(state, action) {
+            state.isModal = true
+            state.type = action.payload.type
+            state.post = action.payload.post
+        },
     }
 });
 

@@ -7,8 +7,6 @@ import Comment from "./Comments/Comment";
 const PostOverlay = (props) => {
     const post = useSelector(state => state.modal.post)
 
-    console.log(post)
-
     return (
     <Modal>
         <div className={classes.left}>

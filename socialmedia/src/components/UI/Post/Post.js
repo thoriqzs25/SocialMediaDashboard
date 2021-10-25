@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import PostItem from "./PostItem";
 import classes from './Post.module.css';
+import { modalActions } from "../../store/modal-slice";
 
 const Post = () => {
+    const dispatch = useDispatch();
     const [postsList, setPhotoList] = useState([]);
     const userId = useSelector(state => state.user.userId)
 
@@ -18,7 +20,7 @@ const Post = () => {
                 if((postJSON[key].userId)-1 === Number(userId)) {
                     postData.push({
                         userId: postJSON[key].userId,
-                        id: key,
+                        id: postJSON[key].id,
                         title: postJSON[key].title,
                         body: postJSON[key].body
                 })}
@@ -28,14 +30,19 @@ const Post = () => {
         fetchPost();
     }, [userId]);
     
+    const postHandler = (post) => {
+        dispatch(modalActions.switchTogglePostModal({post: post, type: 'post'}))
+    };
     
     return (
         <div className={classes.container}>
             {postsList.slice(0, 5).map((val,index) => {
                 return (
                     <div key={val.id} className={classes.subcontainer}>
-                        <div className={classes.grid}>
-                            <PostItem title={val.title} key={val.id}/>
+                        <div className={classes.grid} onClick={postHandler.bind(null, val)}>
+                            <PostItem 
+                            title={val.title} 
+                            key={val.id}  />
                         </div>
                     </div>
                 )

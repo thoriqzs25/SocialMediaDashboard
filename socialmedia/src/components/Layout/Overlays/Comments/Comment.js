@@ -6,8 +6,6 @@ const Comment = (props) => {
     const [comments, setComments] = useState([]);
     const postId = props.id    
 
-    console.log(postId)
-
     useEffect(() => {
         const fetchComments = async () => {
             const getComment = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
@@ -29,13 +27,11 @@ const Comment = (props) => {
         fetchComments();
     }, [postId]);
 
-    console.log(comments)
-
     return (
         <div className={classes.container}>
             {comments.map((com, index) => {
                 return (
-                    <div className={classes.comment}>
+                    <div className={classes.comment} key={com.id}>
                         <div className={classes.identity}>
                             <p>Name: {com.name}</p>
                             <p>Email: {com.email}</p>
