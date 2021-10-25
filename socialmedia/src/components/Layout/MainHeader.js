@@ -3,12 +3,10 @@ import Search from '../UI/Search';
 import classes from './MainHeader.module.css';
 import user from '../../assets/user.png';
 import home from '../../assets/home.png';
-import album from '../../assets/album.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../store/auth-slice';
 import { Link } from 'react-router-dom';
 import { userActions } from '../store/user-slice';
-import { modalActions } from '../store/modal-slice';
 
 const MainHeader = (props) => {
     const dispatch = useDispatch();
@@ -16,8 +14,6 @@ const MainHeader = (props) => {
     const currPage = useSelector(state => state.auth.currPage);
     const nameLogin = useSelector(state => state.user.name)
     const userId = useSelector(state => state.user.userId)
-    console.log(userId)
-    console.log(currPage)
     const toggleHandler = (event) => {
         event.preventDefault();
 
@@ -49,8 +45,7 @@ const MainHeader = (props) => {
             {!isAuth && <div><h1>SOCIAL MEDIA</h1></div>}
             <nav>
                 <ul>
-                    <li><Search /></li>
-
+                    {currPage === 'home' ? <li><Search /></li> : <></>}
                     {!isAuth && 
                     <li onClick={toggleHandler}><Dot item={user} alt={"user_alt"} />
                     </li>}

@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import classes from './AlbumThumb.module.css';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
-import { modalActions } from '../../../store/modal-slice';
 import AlbumThumbItem from './AlbumThumbItem';
 
 const AlbumThumb = (props) => {
-    const dispatch = useDispatch();
     const [albumList, setAlbumList] = useState([]);
     const userId = useSelector(state => state.user.userId)
       
@@ -38,7 +36,6 @@ const AlbumThumb = (props) => {
             else {
                 for (const key in albumJSON) {
                     if((albumJSON[key].userId)-1 === Number(userId)) {
-                        console.log('masuk')
                         albumData.push({
                             id: albumJSON[key].id,
                             userId: albumJSON[key].userId,
