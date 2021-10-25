@@ -4,30 +4,33 @@ const modalSlice = createSlice({
     name: 'modal',
     initialState: { isModal: false, type: '', post: {} },
     reducers: {
-        toggle(state) {
+        toggle(state) { //untuk keluar modal
             state.isModal = !state.isModal
             state.type = ''
         },
-        togglePostModal(state) {
+        togglePostModal(state) { //untuk ganti home sm user
             state.isModal = !state.isModal
         },
-        togglePostListModal(state) {
+        togglePostListModal(state) { //untuk buka modal postlist
             state.isModal = !state.isModal
             state.type = 'postList'
         },
-        toggleAlbumModal(state) {
+        toggleAlbumModal(state) { //untuk buka modal album
             state.isModal = !state.isModal
             state.type = 'album'
         },
-        switchPostModal(state, action) {
+        switchPostModal(state, action) { //untuk pindah dari postlist ke post spesifik
             state.type = action.payload.type
             state.post = action.payload.post
         },
-        switchTogglePostModal(state, action) {
+        switchTogglePostModal(state, action) { //untuk buka langsung modal post
             state.isModal = true
             state.type = action.payload.type
             state.post = action.payload.post
         },
+        switchAddPostComment(state, action) {
+            state.type = action.payload
+        }
     }
 });
 

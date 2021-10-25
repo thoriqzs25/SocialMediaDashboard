@@ -30,8 +30,6 @@ const AlbumThumb = (props) => {
         };
         fetchAlbum();
     }, [userId]);
-
-    console.log(albumList)
     
     const albumPickHanlder = (e) => {
         e.preventDefault();
