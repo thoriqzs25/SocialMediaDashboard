@@ -31,7 +31,7 @@ const Post = () => {
     
     return (
         <div className={classes.container}>
-            {postsList.slice(0, 3).map((val,index) => {
+            {postsList.slice(0, 5).map((val,index) => {
                 return (
                     <div key={val.id} className={classes.subcontainer}>
                         <div className={classes.grid}>
@@ -40,6 +40,11 @@ const Post = () => {
                     </div>
                 )
             })}
+            <div className={classes.subcontainer}>
+                <div className={classes.grid}>
+                    <PostItem title='+'/>
+                </div>
+            </div>
         </div>
     );
 };

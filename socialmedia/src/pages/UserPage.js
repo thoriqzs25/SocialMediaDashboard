@@ -20,14 +20,20 @@ const UserPage = () => {
 
     return (
     <div className={classes.container}>
-        <button onClick={togglePostListHandler}>
-            Show more post
-        </button>
+        <p>Posts</p>
         <Post />
-        <button onClick={toggleAlbumHandler}>
-            album test
-        </button>
+        <div className={classes.buttoncont}>
+            <button onClick={togglePostListHandler}>
+                Show more post
+            </button>
+        </div>
+        <p>Album</p>
         <div><p>album</p></div>
+        <div className={classes.buttoncont}>
+            <button onClick={toggleAlbumHandler}>
+                album test
+            </button>
+        </div>
     </div>
     );
 };
