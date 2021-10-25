@@ -6,10 +6,10 @@ import classes from './UserPage.module.css';
 const UserPage = () => {
     const dispatch = useDispatch();
 
-    const togglePostHandler = (event) => {
+    const togglePostListHandler = (event) => {
         event.preventDefault();
 
-        dispatch(modalActions.togglePostModal());
+        dispatch(modalActions.togglePostListModal());
     };
 
     const toggleAlbumHandler = (event) => {
@@ -20,7 +20,7 @@ const UserPage = () => {
 
     return (
     <div className={classes.container}>
-        <button onClick={togglePostHandler}>
+        <button onClick={togglePostListHandler}>
             Show more post
         </button>
         <Post />

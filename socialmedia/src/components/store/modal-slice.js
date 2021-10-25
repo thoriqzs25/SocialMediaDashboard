@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const modalSlice = createSlice({
     name: 'modal',
-    initialState: { isModal: false, type: '' },
+    initialState: { isModal: false, type: '', post: {} },
     reducers: {
         toggle(state) {
             state.isModal = !state.isModal
@@ -10,11 +10,18 @@ const modalSlice = createSlice({
         },
         togglePostModal(state) {
             state.isModal = !state.isModal
-            state.type = 'post'
+        },
+        togglePostListModal(state) {
+            state.isModal = !state.isModal
+            state.type = 'postList'
         },
         toggleAlbumModal(state) {
             state.isModal = !state.isModal
             state.type = 'album'
+        },
+        switchPostModal(state, action) {
+            state.type = action.payload.type
+            state.post = action.payload.post
         }
     }
 });

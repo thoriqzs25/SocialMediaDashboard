@@ -13,6 +13,7 @@ const modalType = useSelector(state => state.modal.type)
     return (
         <Fragment>
             {ReactDOM.createPortal(<ModalBackdrop />, portalElemenet)}
+            {modalType === 'postList' && ReactDOM.createPortal(<OverlayAlbum>{props.children}</OverlayAlbum>, portalElemenet)}
             {modalType === 'post' && ReactDOM.createPortal(<OverlayCard>{props.children}</OverlayCard>, portalElemenet)}
             {modalType === 'album' && ReactDOM.createPortal(<OverlayAlbum>{props.children}</OverlayAlbum>, portalElemenet)}
         </Fragment>

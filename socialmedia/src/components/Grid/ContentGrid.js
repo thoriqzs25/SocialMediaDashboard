@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import PostOverlay from "../Layout/Overlays/PostOverlay";
 import UserPage from "../../pages/UserPage";
 import AlbumOverlay from "../Layout/Overlays/AlbumOverlay";
+import PostListOverlay from "../Layout/Overlays/PostListOverlay";
 
 
 const ContentGrid = () => {
@@ -20,6 +21,7 @@ const ContentGrid = () => {
                 <div className={classes.content}>
                     {!isAuth && <Content />}
                     {isAuth && <UserPage />}
+                    {isAuth && isModal && modalType === 'postList' && <PostListOverlay />}
                     {isAuth && isModal && modalType === 'post' && <PostOverlay />}
                     {isAuth && isModal && modalType === 'album' && <AlbumOverlay />}
                 </div>
