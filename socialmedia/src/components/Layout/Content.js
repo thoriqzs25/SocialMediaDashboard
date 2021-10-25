@@ -21,10 +21,8 @@ const Content = () => {
 
             for (let i = 0; i < 5; i++) {
                 let id = getRandomInt(5000);
-                console.log(id)
                 for (const key in photoJSON) {  
                     if (photoJSON[key].id === id) {              
-                        console.log('masuk')
                         photoData.push({
                         albumId: photoJSON[key].albumId,
                         id: photoJSON[key].id,
@@ -39,7 +37,6 @@ const Content = () => {
         fetchPhoto();
     }, []);
 
-    console.log(photoList)
 
     return (
         <div className={classes.grid}>

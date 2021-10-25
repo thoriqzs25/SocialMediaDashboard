@@ -3,7 +3,7 @@ import user from '../../../assets/user.png';
 
 const UserItem = (props) => {
     return (
-    <div onClick={props.onLogin}>
+    <div>
         <div className={classes.userCard}>
             <div className={classes.grid}>
                 <span><img src={user} alt="user_icon"/></span>

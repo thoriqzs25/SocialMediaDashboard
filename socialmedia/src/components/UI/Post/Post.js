@@ -24,7 +24,6 @@ const Post = () => {
             if(name === '') { //kalau belom ada user berarti output random
                 for (let i = 0; i < 5; i++) {
                     let id = getRandomInt(100);
-                    console.log(id)
                     for (const key in postJSON) {  
                         if (postJSON[key].id === id) {              
                             postData.push({

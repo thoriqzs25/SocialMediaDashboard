@@ -5,7 +5,6 @@ import { Fragment } from "react";
 
 const Sidebar = () => {
     const isAuth = useSelector(state => state.auth.isAuthenticated)
-    console.log(isAuth)
     return (
         <Fragment>
             {!isAuth && <div className={classes.sider}>

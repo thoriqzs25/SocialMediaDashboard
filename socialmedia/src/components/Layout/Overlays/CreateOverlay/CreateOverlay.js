@@ -39,7 +39,7 @@ const CreateOverlay = (props) => {
             .then((response) => response.json())
             .then((json) => console.log(json));
 
-        console.log(title, body)
+        console.log(`CREATED POST FOR USERID: ${userId}, TITLE: ${title}, CAPTION: ${body}`)
         dispatch(modalActions.toggle())
     };
 

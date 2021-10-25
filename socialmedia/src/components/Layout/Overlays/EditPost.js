@@ -1,7 +1,10 @@
 import classes from './EditPost.module.css';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux'; 
+import { modalActions } from '../../store/modal-slice';
 
 const EditPost = (props) => {
+    const dispatch = useDispatch();
     const postToEdit = props.post
 
     const [title, setTitle] = useState(postToEdit.title);
@@ -18,11 +21,11 @@ const EditPost = (props) => {
         }
     }; 
 
-    const onSubmitHandler  = (e) => {
+    const onSubmitHandler = (e) => {
         e.preventDefault();
 
         fetch(`https://jsonplaceholder.typicode.com/posts/${postToEdit.id}`, {
-            method: 'PUT',
+            method: 'PATCH',
             body: JSON.stringify({
                 title: title,
                 body: body,
@@ -36,6 +39,16 @@ const EditPost = (props) => {
 
         props.edit();
     }
+
+    const onDelete = (e) => {
+        e.preventDefault();
+
+        fetch(`https://jsonplaceholder.typicode.com/posts/${postToEdit.id}`, {
+            method: 'DELETE', 
+        })
+        console.log(`DELETED POST WITH ID ${postToEdit.id}`)
+        dispatch(modalActions.toggle())
+    };
 
     return (
         <div>
@@ -58,7 +71,7 @@ const EditPost = (props) => {
                     <button>Edit</button>
                 </div>
             </form>
-        <button>DELETE BUTTON</button>
+        <button onClick={onDelete}>DELETE BUTTON</button>
         </div>
 
     );

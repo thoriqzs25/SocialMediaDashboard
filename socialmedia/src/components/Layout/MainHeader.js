@@ -16,7 +16,7 @@ const MainHeader = (props) => {
     const currPage = useSelector(state => state.auth.currPage);
     const nameLogin = useSelector(state => state.user.name)
     const userId = useSelector(state => state.user.userId)
-
+    console.log(userId)
     const toggleHandler = (event) => {
         event.preventDefault();
 
@@ -55,10 +55,10 @@ const MainHeader = (props) => {
             {!isAuth && <div><h1>SOCIAL MEDIA</h1></div>}
             <nav>
                 <ul>
-                    {isAuth && currPage === 'home' &&
+                    {/* {isAuth && currPage === 'home' &&
                     <li onClick={albumModalToggle}>
                         <Dot item={album} alt={"album_alt"} />
-                    </li>}
+                    </li>} */}
 
                     <li><Search /></li>
 
