@@ -7,9 +7,6 @@ import ContentGrid from "./components/Grid/ContentGrid";
 import { userActions } from './components/store/user-slice';
 
 function App() {
-<<<<<<< HEAD
-  localStorage.setItem("isLogin", false)
-=======
   var isLogin = localStorage.getItem("isLogin");
   var userData = JSON.parse(localStorage.getItem("userData"));
   
@@ -19,8 +16,7 @@ function App() {
     console.log("masuk")
     dispatch(userActions.changeUser(userData));
   };
-
->>>>>>> loading
+  
   return (
     <Layout>
       <Route path="/" exact>
