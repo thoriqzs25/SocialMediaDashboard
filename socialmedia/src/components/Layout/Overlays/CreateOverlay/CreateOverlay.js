@@ -25,6 +25,7 @@ const CreateOverlay = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("CREATING...")
 
         fetch(`https://jsonplaceholder.typicode.com/posts`, {
             method: 'POST',

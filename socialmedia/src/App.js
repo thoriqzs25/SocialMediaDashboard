@@ -15,9 +15,6 @@ function App() {
   const dispatch = useDispatch();
 
   if(isLogin) {
-    console.log("masuk")
-    console.log(userData)
-    console.log(subPage)
     if(subPage) {
       dispatch(authActions.toggleSubPage(subPage));
     };

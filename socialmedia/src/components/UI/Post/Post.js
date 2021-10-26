@@ -10,6 +10,7 @@ const Post = () => {
     const userId = useSelector(state => state.user.userId);
 
     const [postsList, setPhotoList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
@@ -52,10 +53,16 @@ const Post = () => {
                 }
             }
             setPhotoList(postData)
+            setIsLoading(false);
         };
         fetchPost();
     }, [userId]);
     
+    if(isLoading) {
+        return (<section className='isLoading'><p>LOADING...</p></section>);
+    };
+
+
     const postHandler = (post) => {
         dispatch(modalActions.switch({post: post, type: 'post'}))
         dispatch(modalActions.toggle());

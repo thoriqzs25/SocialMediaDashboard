@@ -4,6 +4,8 @@ import classes from './Comment.module.css';
 const Comment = (props) => {
     const postId = props.id    
     const [comments, setComments] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect(() => {
         const fetchComments = async () => {
@@ -21,10 +23,15 @@ const Comment = (props) => {
                     body: commentJSON[key].body
                 })
             } 
-            setComments(commentData)
+            setComments(commentData);
+            setIsLoading(false);
         };
         fetchComments();
     }, [postId]);
+
+    if(isLoading) {
+        return (<section className='isLoading'><p>LOADING...</p></section>);
+    };
 
     return (
         <div className={classes.container}>

@@ -9,7 +9,8 @@ const Album = () => {
     const userId = useSelector(state => state.user.userId);
 
     const [photoList, setPhotoList] = useState([]);
-    const [userName, setUserName] = useState('');
+    const [userName, setUserName] = useState('');   
+    const [isLoading, setIsLoading] = useState(true);
     
     const { iD } = useParams();
     
@@ -31,7 +32,7 @@ const Album = () => {
             } 
             setPhotoList(photoData)
         };
-        
+
         const fetchUser = async () => {
             const getUser = await fetch('https://jsonplaceholder.typicode.com/users');
             const userJSON = await getUser.json();
@@ -43,11 +44,17 @@ const Album = () => {
                     userData = userJSON[key].name
                 };
             } 
-            setUserName(userData)
+            setUserName(userData);
+            setIsLoading(false);
         };
         fetchPhoto();
         fetchUser();
     }, [iD, nameFinderId]);
+
+    if(isLoading) {
+        return (<section className='isLoading'><p>LOADING...</p></section>);
+    };
+
 
     return (
         <div className={classes.container}>

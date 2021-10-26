@@ -49,7 +49,9 @@ const PostOverlay = () => {
                 <div className={classes.edit}>
                     <img src={dot} alt='3_dot_edit' onClick={editPostHandler}/>
                 </div>
-                <p>{post.body}</p>
+                <div className={classes.body}>
+                    <p>{post.body}</p>
+                </div>
                 <button onClick={addCommentHandler}>Add Comment</button>
                 <Comment id={post.id}/> 
             </Fragment>

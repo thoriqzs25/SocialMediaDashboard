@@ -10,15 +10,16 @@ const UserCard = () => {
     const search = useSelector(state => state.search.search)
     
     const [userList, setUserList] = useState([]);
-
-
+    const [isLoading, setIsLoading] = useState(true);
+    
+    
     useEffect(() => {
         const fetchUser = async () => {
             const getUser = await fetch('https://jsonplaceholder.typicode.com/users');
             const userJSON = await getUser.json();
-    
+            
             const userData = [];
-
+            
             for (const key in userJSON) {
                 userData.push({
                     id: userJSON[key].id,
@@ -27,11 +28,16 @@ const UserCard = () => {
                     email: userJSON[key].email
                 });
             } 
-            setUserList(userData)
+            setUserList(userData);
+            setIsLoading(false);
         };
         fetchUser();
     }, []);
-
+    
+    if(isLoading) {
+        return (<section className='isLoading'><p>LOADING...</p></section>);
+    };
+    
     const userLoginHandler = (item) => {
         localStorage.setItem("isLogin", true);
         localStorage.setItem("userData", JSON.stringify(item));

@@ -24,6 +24,7 @@ const EditPost = (props) => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
+        console.log("PATCHING...")
 
         fetch(`https://jsonplaceholder.typicode.com/posts/${postToEdit.id}`, {
             method: 'PATCH',

@@ -1,4 +1,3 @@
-// import { useRef } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect, Fragment } from 'react';
 import { modalActions } from '../../store/modal-slice';
@@ -14,6 +13,7 @@ const PostListOverlay = () => {
     console.log(userId)
 
     const [postsList, setPostList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -31,16 +31,15 @@ const PostListOverlay = () => {
                         body: postJSON[key].body
                 })}
             } 
-            setPostList(postData)
+            setPostList(postData);
+            setIsLoading(false);
         };
         fetchPost();
     }, [userId]);
 
-    // const myRef = useRef();
-        
-    // const executeScroll = () => {
-    //     myRef.current.scrollIntoView({ behavior: 'smooth' })
-    // };
+    if(isLoading) {
+        return (<section className='isLoading'><p>LOADING...</p></section>);
+    };
 
     const postPickHandler = (post) => {
         dispatch(modalActions.switch({post: post, type: 'post'}));

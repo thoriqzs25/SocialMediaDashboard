@@ -16,6 +16,7 @@ const Content = () => {
 
     const [photoList, setPhotoList] = useState([]);
     const [photoOverlay, setPhotoOverlay] = useState();
+    const [isLoading, setIsLoading] = useState(true);
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
@@ -40,10 +41,15 @@ const Content = () => {
                     }
                 }
             } 
-            setPhotoList(photoData)
+            setPhotoList(photoData);
+            setIsLoading(false);
         };
         fetchPhoto();
     }, []);
+
+    if(isLoading) {
+        return (<section className='isLoading'><p>LOADING...</p></section>);
+    };
 
     const photoPickHandler = (item) => {
         setPhotoOverlay(item);

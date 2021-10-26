@@ -9,6 +9,7 @@ const AlbumThumb = () => {
     const userId = useSelector(state => state.user.userId);
 
     const [albumList, setAlbumList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
       
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
@@ -46,11 +47,15 @@ const AlbumThumb = () => {
                     }
                 } 
             }
-            setAlbumList(albumData)
+            setAlbumList(albumData);
+            setIsLoading(false);
         };
         fetchAlbum();
     }, [userId]);
 
+    if(isLoading) {
+        return (<section className='isLoading'><p>LOADING...</p></section>);
+    };
     
     return (
         <div className={classes.container}>

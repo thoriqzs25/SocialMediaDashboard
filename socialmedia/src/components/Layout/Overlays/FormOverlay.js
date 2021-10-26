@@ -25,26 +25,33 @@ const FormOverlay = (props) => {
     const onSubmitHandler  = (e) => {
         e.preventDefault();
 
-        fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, {
-        method: 'POST',
-        body: JSON.stringify({
-            postId: postId,
-            id: Math.random(),
-            name: name,
-            email: email,
-            body: comment,
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-        })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+        if(email.includes('@')) {
+            console.log("ADDING...")
+    
+            fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, {
+            method: 'POST',
+            body: JSON.stringify({
+                postId: postId,
+                id: Math.random(),
+                name: name,
+                email: email,
+                body: comment,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    
+            setName('');
+            setEmail('');
+            setComment('');
+            props.comment();
+        } else {
+            setEmail('INVALID!');
+        }
 
-        setName('');
-        setEmail('');
-        setComment('');
-        props.comment();
     };
 
     return (
