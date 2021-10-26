@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 
 import classes from './AlbumThumb.module.css';
 import AlbumThumbItem from './AlbumThumbItem';
 
 const AlbumThumb = () => {
-    const userId = useSelector(state => state.user.userId);
+    var userData = JSON.parse(localStorage.getItem("userData"));
+    const userId = Number(userData.id);
 
     const [albumList, setAlbumList] = useState([]);
       

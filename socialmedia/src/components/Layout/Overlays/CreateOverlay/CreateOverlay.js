@@ -6,8 +6,10 @@ import Modal from "../../../UI/Modal/Modal";
 import classes from './CreateOverlay.module.css';
 
 const CreateOverlay = () => {
+    var userData = JSON.parse(localStorage.getItem("userData"));
+    const userId = Number(userData.id);
+    
     const dispatch = useDispatch();
-    const userId = useSelector(state => state.user.userId)
 
     const [body, setBody] = useState('');
     const [title, setTitle] = useState('');

@@ -5,6 +5,7 @@ import Layout from "./components/Layout/Layout";
 import ContentGrid from "./components/Grid/ContentGrid";
 
 function App() {
+  localStorage.setItem("isLogin", false)
   return (
     <Layout>
       <Route path="/" exact>

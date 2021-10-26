@@ -9,8 +9,10 @@ import classes from './AlbumOverlay.module.css';
 import { Fragment } from 'react';
 
 const AlbumOverlay = () => {
+    var userData = JSON.parse(localStorage.getItem("userData"));
+    const userId = Number(userData.id);
+    
     const dispatch = useDispatch();
-    const userId = useSelector(state => state.user.userId)
 
     const [albumList, setAlbumList] = useState([]);
       

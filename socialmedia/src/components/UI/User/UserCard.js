@@ -6,10 +6,12 @@ import { authActions } from '../../store/auth-slice';
 import UserItem from './UserItem';
 
 const UserCard = () => {
-    const dispatch = useDispatch();
-    const userId = useSelector(state => state.user.userId)
-    const search = useSelector(state => state.search.search)
+    var userData = JSON.parse(localStorage.getItem("userData"));
+    const userId = Number(userData.id)
 
+    const dispatch = useDispatch();
+    const search = useSelector(state => state.search.search)
+    
     const [userList, setUserList] = useState([]);
 
 
@@ -34,18 +36,20 @@ const UserCard = () => {
     }, []);
 
     const userLoginHandler = (item) => {
-        localStorage.setItem('userData', JSON.stringify(item))
+        localStorage.setItem('userData', JSON.stringify(item));
+        localStorage.setItem("isLogin", true);
 
         if(userId === -1) { //kalau belom login -> ketika login langusng redirect ke post sm album page
             dispatch(authActions.toggleSubPage())
         };
 
+        window.location.reload()
         dispatch(userActions.changeUser({
             id: item.id,
             name: item.name,
             username: item.username,
             email: item.email
-        }))
+        }));
     };
 
     const filterSearch = userList.filter(val => {

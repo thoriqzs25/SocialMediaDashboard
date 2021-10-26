@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { modalActions } from "../../store/modal-slice";
 
 import PostItem from "./PostItem";
 import classes from './Post.module.css';
 
 const Post = () => {
+    var userData = JSON.parse(localStorage.getItem("userData"));
+    const userId = Number(userData.id);
+
     const dispatch = useDispatch();
-    const userId = useSelector(state => state.user.userId)
 
     const [postsList, setPhotoList] = useState([]);
 

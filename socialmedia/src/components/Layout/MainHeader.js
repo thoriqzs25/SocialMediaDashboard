@@ -10,15 +10,16 @@ import home from '../../assets/home.png';
 import classes from './MainHeader.module.css';
 
 const MainHeader = () => {
-    const dispatch = useDispatch();
-
     var userData = JSON.parse(localStorage.getItem("userData"));
-    console.log(userData);
-
-    const userId = useSelector(state => state.user.userId);
-    const nameLogin = useSelector(state => state.user.name);
+    var isLogin = localStorage.getItem("isLogin")
+    const nameLogin = userData.name;
+    console.log(userData)
+    
+    const dispatch = useDispatch();
     const subPage = useSelector(state => state.auth.subPage);
+
     const currPage = useSelector(state => state.auth.currPage);
+
     const toggleHandler = () => {
         dispatch(authActions.toggleSubPage());
     };
@@ -30,9 +31,8 @@ const MainHeader = () => {
     };
 
     const logoutHandler = () => {
-        localStorage.removeItem("userData");
+        localStorage.setItem("isLogin", false)
         
-        dispatch(userActions.logoutReducer());
         dispatch(authActions.toggleHome());
         dispatch(authActions.navigate('home'));
     };
@@ -53,11 +53,11 @@ const MainHeader = () => {
 
             <nav>
                 <ul>
-                    {userId > 0 ? <li><p>{nameLogin}</p></li> : <li>{ currPage === 'home' &&
+                    {isLogin ? <li><p>{nameLogin}</p></li> : <li>{ currPage === 'home' &&
                     <p>Welcome... Choose a user</p>}
                     </li>}
 
-                    {userId > 0 && 
+                    {isLogin && 
                     <li onClick={logoutHandler}>
                         <Link to='/'>
                             <button>LogOut</button>
