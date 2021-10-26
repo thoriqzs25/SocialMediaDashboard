@@ -1,36 +1,32 @@
-import Dot from '../UI/Dot';
-import Search from '../UI/Search';
-import classes from './MainHeader.module.css';
-import user from '../../assets/user.png';
-import home from '../../assets/home.png';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../store/auth-slice';
-import { Link } from 'react-router-dom';
 import { userActions } from '../store/user-slice';
 
-const MainHeader = (props) => {
+import Dot from '../UI/Dot';
+import Search from '../UI/Search';
+import user from '../../assets/user.png';
+import home from '../../assets/home.png';
+import classes from './MainHeader.module.css';
+
+const MainHeader = () => {
     const dispatch = useDispatch();
+
     const isAuth = useSelector(state => state.auth.isAuthenticated);
     const currPage = useSelector(state => state.auth.currPage);
     const nameLogin = useSelector(state => state.user.name)
     const userId = useSelector(state => state.user.userId)
-    const toggleHandler = (event) => {
-        event.preventDefault();
-
+    const toggleHandler = () => {
         dispatch(authActions.toggle());
     };
 
 
-    const homeToggle = (event) => {
-        event.preventDefault();
-
+    const homeToggle = () => {
         dispatch(authActions.togglePage1());
         dispatch(authActions.navigate('home'));
     };
 
-    const logoutHandler = (event) => {
-        event.preventDefault();
-
+    const logoutHandler = () => {
         dispatch(userActions.logoutReducer())
     };
 

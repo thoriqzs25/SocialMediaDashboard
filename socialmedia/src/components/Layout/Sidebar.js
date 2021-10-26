@@ -1,16 +1,19 @@
+import { Fragment } from "react";
+import { useSelector } from "react-redux";
+
 import UserCard from "../UI/User/UserCard";
 import classes from './Sidebar.module.css';
-import { useSelector } from "react-redux";
-import { Fragment } from "react";
 
 const Sidebar = () => {
     const isAuth = useSelector(state => state.auth.isAuthenticated)
     return (
         <Fragment>
-            {!isAuth && <div className={classes.sider}>
+            {!isAuth ? 
+            <div className={classes.sider}>
                 <UserCard />
-            </div>}
-            {isAuth && <div className={classes.sider2}> 
+            </div>
+            :
+            <div className={classes.sider2}> 
                 <UserCard />
             </div>}
         </Fragment>

@@ -1,15 +1,17 @@
+import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { modalActions } from "../../store/modal-slice";
+
 import Card from "../../UI/Card";
 import Modal from "../../UI/Modal/Modal";
 import classes from './AlbumOverlay.module.css';
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from 'react-router-dom';
-import { modalActions } from "../../store/modal-slice";
 
-const AlbumOverlay = (props) => {
+const AlbumOverlay = () => {
     const dispatch = useDispatch();
-    const [albumList, setAlbumList] = useState([]);
     const userId = useSelector(state => state.user.userId)
+
+    const [albumList, setAlbumList] = useState([]);
       
     useEffect(() => {
         const fetchAlbum = async () => {
@@ -19,7 +21,8 @@ const AlbumOverlay = (props) => {
             const albumData = [];
             
             for (const key in albumJSON) {
-                if((albumJSON[key].userId)-1 === Number(userId)) {
+                if(albumJSON[key].userId === Number(userId)) {
+                    console.log(albumJSON[key].userId)
                     albumData.push({
                         id: albumJSON[key].id,
                         userId: albumJSON[key].userId,
@@ -56,6 +59,7 @@ const AlbumOverlay = (props) => {
                                         <Card item={album.title}/>
                                     </div>
                                 }
+
                                 {index >= 1 &&
                                     <div>
                                         <Card item={album.title} />
@@ -64,6 +68,7 @@ const AlbumOverlay = (props) => {
                             </Link>
                         </div>)
                 })}
+                
                 <div className={classes.albumitem}>
                     <button onClick={executeScroll}> Click to scroll </button>
                 </div>

@@ -1,8 +1,9 @@
 import { useDispatch } from "react-redux";
 import { modalActions } from "../components/store/modal-slice";
-import AlbumThumb from "../components/UI/AlbumItem/Album/AlbumThumb";
-import Post from "../components/UI/Post/Post";
+
 import classes from './UserPage.module.css';
+import Post from "../components/UI/Post/Post";
+import AlbumThumb from "../components/UI/AlbumItem/Album/AlbumThumb";
 
 const UserPage = () => {
     const dispatch = useDispatch();

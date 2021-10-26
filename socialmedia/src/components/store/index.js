@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+
+import userReducer from './user-slice';
 import authReducer from './auth-slice';
 import modalReducer from './modal-slice';
-import userReducer from './user-slice';
 import searchReducer from './search-slice';
 
 const store = configureStore({

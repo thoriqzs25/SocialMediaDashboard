@@ -1,15 +1,17 @@
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect, useRef, Fragment } from 'react';
+import { modalActions } from '../../store/modal-slice';
+
 import Modal from '../../UI/Modal/Modal';
 import classes from './PostListOverlay.module.css';
-import { useState, useEffect, useRef, Fragment } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { modalActions } from '../../store/modal-slice';
 import PostListItem from './PostListOverlay/PostListItem';
 
 
 const PostListOverlay = (props) => {
     const dispatch = useDispatch();
-    const [postsList, setPostList] = useState([]);
     const userId = useSelector(state => state.user.userId)
+
+    const [postsList, setPostList] = useState([]);
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -40,31 +42,32 @@ const PostListOverlay = (props) => {
 
     const postPickHandler = (post) => {
         dispatch(modalActions.switchPostModal({post: post, type: 'post'}))
-    }
+    };
 
     return (
         <Modal>
             <div className={classes.container}>
-            {userId === -1 && <p>Please pick a user and then revisit...</p>}
+                {userId === -1 && <p>Please pick a user and then revisit...</p>}
 
-            {userId > 0 && 
-            <Fragment>
-                {postsList.map((post, index) => {
-                    return (
-                        <div className={classes.subcontainer}>
-                            <PostListItem 
-                            myRef={myRef} 
-                            index={index} 
-                            title={post.title} 
-                            key={post.id}
-                            onPicked={postPickHandler.bind(null, post)}/>
-                        </div>
-                    )
-                })}
-                <div className={classes.subcontainer}>
-                    <button onClick={executeScroll}> Click to scroll </button>
-                </div>
-            </Fragment>}
+                {userId > 0 && 
+                <Fragment>
+                    {postsList.map((post, index) => {
+                        return (
+                            <div className={classes.subcontainer}>
+                                <PostListItem 
+                                myRef={myRef} 
+                                index={index} 
+                                title={post.title} 
+                                key={post.id}
+                                onPicked={postPickHandler.bind(null, post)}/>
+                            </div>
+                        )
+                    })}
+                    
+                    <div className={classes.subcontainer}>
+                        <button onClick={executeScroll}> Click to scroll </button>
+                    </div>
+                </Fragment>}
             </div>
         </Modal>
     );

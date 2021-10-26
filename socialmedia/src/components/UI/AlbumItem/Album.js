@@ -1,7 +1,8 @@
-import classes from './Album.module.css';
-import AlbumItem from './AlbumItems';
-import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { useState, useEffect } from "react";
+
+import AlbumItem from './AlbumItems';
+import classes from './Album.module.css';
 
 const Album = () => {
     const [photoList, setPhotoList] = useState([]);

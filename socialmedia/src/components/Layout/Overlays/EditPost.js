@@ -1,14 +1,15 @@
-import classes from './EditPost.module.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'; 
 import { modalActions } from '../../store/modal-slice';
 
-const EditPost = (props) => {
-    const dispatch = useDispatch();
-    const postToEdit = props.post
+import classes from './EditPost.module.css';
 
-    const [title, setTitle] = useState(postToEdit.title);
+const EditPost = (props) => {
+    const postToEdit = props.post
+    const dispatch = useDispatch();
+
     const [body, setBody] = useState(postToEdit.body);
+    const [title, setTitle] = useState(postToEdit.title);
 
     const onChangeHandler = (e) => {
         switch(e.target.name) {
@@ -70,7 +71,7 @@ const EditPost = (props) => {
                 <div className={classes.submit}>
                     <button>Edit</button>
                 </div>
-            </form>
+            </form><br />
         <button onClick={onDelete}>DELETE BUTTON</button>
         </div>
 

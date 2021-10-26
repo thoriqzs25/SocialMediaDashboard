@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import classes from './AlbumItem.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalActions } from '../../store/modal-slice';
+
+import classes from './AlbumItem.module.css';
 import PhotoOverlay from '../../Layout/Overlays/AlbumPage/PhotoOverlay';
 
 const AlbumItem = (props) => {
-    const isModal = useSelector(state => state.modal.isModal)
-    const [pickedPhoto, setPickedPhoto] = useState();
     const dispatch = useDispatch();
+    const isModal = useSelector(state => state.modal.isModal);
+
+    const [pickedPhoto, setPickedPhoto] = useState();
 
     const scrollUp = () => {
         window.scrollTo(0, 0);

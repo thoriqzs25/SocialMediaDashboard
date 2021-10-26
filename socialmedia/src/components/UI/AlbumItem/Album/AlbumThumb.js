@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
-import classes from './AlbumThumb.module.css';
-import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+
+import classes from './AlbumThumb.module.css';
 import AlbumThumbItem from './AlbumThumbItem';
 
-const AlbumThumb = (props) => {
+const AlbumThumb = () => {
+    const userId = useSelector(state => state.user.userId);
+
     const [albumList, setAlbumList] = useState([]);
-    const userId = useSelector(state => state.user.userId)
       
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);

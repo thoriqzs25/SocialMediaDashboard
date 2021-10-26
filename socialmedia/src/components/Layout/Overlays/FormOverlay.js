@@ -1,5 +1,6 @@
-import classes from './FormOverlay.module.css';
 import { useState } from "react";
+
+import classes from './FormOverlay.module.css';
 
 
 const FormOverlay = (props) => {
@@ -17,7 +18,7 @@ const FormOverlay = (props) => {
             case 'comment':
                 return setComment(e.target.value)
             default:
-                return
+                return ;
         }
     }; 
 
@@ -50,21 +51,15 @@ const FormOverlay = (props) => {
         <form onSubmit={onSubmitHandler} className={classes.form}>
             <ul>
                 <li>
-                    <label>
-                        Name: 
-                    </label><br />
+                    <label>Name: </label><br />
                     <input type='text' name='name' value={name} onChange={onChangeHandler}></input>
                 </li>
                 <li>
-                    <label>
-                        Email: 
-                    </label><br />
+                    <label>Email: </label><br />
                     <input type='text' name='email' value={email} onChange={onChangeHandler}></input>
                 </li>
                 <li className={classes.comment}>
-                    <label>
-                        Comment: 
-                    </label><br />
+                    <label>Comment: </label><br />
                     <textarea name='comment' value={comment} onChange={onChangeHandler}></textarea>
                 </li>
             </ul>

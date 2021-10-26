@@ -1,8 +1,9 @@
-import classes from './ModalBackdrop.module.css';
 import { useDispatch } from 'react-redux';
 import { modalActions } from '../../store/modal-slice';
 
-const ModalBackdrop = (props) => {
+import classes from './ModalBackdrop.module.css';
+
+const ModalBackdrop = () => {
     const dispatch = useDispatch();
 
     const toggleHanlder = (event) => {

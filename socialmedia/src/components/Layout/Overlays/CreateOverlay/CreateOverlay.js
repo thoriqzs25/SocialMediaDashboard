@@ -1,14 +1,16 @@
-import Modal from "../../../UI/Modal/Modal";
-import classes from './CreateOverlay.module.css';
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { modalActions } from "../../../store/modal-slice";
 
+import Modal from "../../../UI/Modal/Modal";
+import classes from './CreateOverlay.module.css';
+
 const CreateOverlay = (props) => {
     const dispatch = useDispatch();
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
     const userId = useSelector(state => state.user.userId)
+
+    const [body, setBody] = useState('');
+    const [title, setTitle] = useState('');
     
     const onChangeHandler = (e) => {
         switch(e.target.name) {
@@ -17,8 +19,8 @@ const CreateOverlay = (props) => {
             case 'body':
                 return setBody(e.target.value)
             default:
-                return
-        }
+                return  ;
+        };
     };
 
     const handleSubmit = (e) => {
@@ -49,7 +51,7 @@ const CreateOverlay = (props) => {
                     <label>Title: </label><br/>
                     <input name='title' value={title} onChange={onChangeHandler}></input><br/>
                     <label>Caption: </label><br/>
-                    <textarea name='body' value={body} onChange={onChangeHandler}></textarea>
+                    <textarea name='body' value={body} onChange={onChangeHandler}></textarea><br/>
                     <button>ADD POST!</button>
                 </form>
             </div>

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import classes from './Comment.module.css';
 
 const Comment = (props) => {
-    const [comments, setComments] = useState([]);
     const postId = props.id    
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         const fetchComments = async () => {
@@ -35,7 +35,7 @@ const Comment = (props) => {
                             <p>Name: {com.name}</p>
                             <p>Email: {com.email}</p>
                         </div>
-                        <p> --{'>'} {com.body}</p>
+                        <p> Comment: {com.body}</p>
                     </div>
                 );
             })}

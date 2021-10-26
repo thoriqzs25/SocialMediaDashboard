@@ -7,6 +7,7 @@ const modalSlice = createSlice({
         toggle(state) { //untuk keluar modal
             state.isModal = !state.isModal
             state.type = ''
+            state.post = {}
         },
         togglePostModal(state) { //untuk ganti home sm user
             state.isModal = !state.isModal

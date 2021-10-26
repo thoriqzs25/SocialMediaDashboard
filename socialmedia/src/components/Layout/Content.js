@@ -1,21 +1,21 @@
-import classes from './Content.module.css';
+import { useEffect, useState, Fragment } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { modalActions } from '../store/modal-slice';
+
 import Type1 from "../UI/Types/Type1";
 import Type2 from "../UI/Types/Type2";
 import Type3 from "../UI/Types/Type3";
 import Type4 from "../UI/Types/Type4";
-import { useEffect, useState, Fragment } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { modalActions } from '../store/modal-slice';
+import classes from './Content.module.css';
 import PhotoOverlay from './Overlays/AlbumPage/PhotoOverlay';
 
 const Content = () => {
     const dispatch = useDispatch();
+    const isModal = useSelector(state => state.modal.isModal)
+    const modalType = useSelector(state => state.modal.type)
 
     const [photoList, setPhotoList] = useState([]);
     const [photoOverlay, setPhotoOverlay] = useState();
-
-    const isModal = useSelector(state => state.modal.isModal)
-    const modalType = useSelector(state => state.modal.type)
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);

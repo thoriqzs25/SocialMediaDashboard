@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { modalActions } from "../../store/modal-slice";
+
 import PostItem from "./PostItem";
 import classes from './Post.module.css';
-import { modalActions } from "../../store/modal-slice";
 
 const Post = () => {
     const dispatch = useDispatch();
-    const [postsList, setPhotoList] = useState([]);
     const userId = useSelector(state => state.user.userId)
-    const name = useSelector(state => state.user.name)
+
+    const [postsList, setPhotoList] = useState([]);
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
@@ -21,7 +22,7 @@ const Post = () => {
 
             const postData = [];
 
-            if(name === '') { //kalau belom ada user berarti output random
+            if(userId === -1) { //kalau belom ada user berarti output random
                 for (let i = 0; i < 5; i++) {
                     let id = getRandomInt(100);
                     for (const key in postJSON) {  
@@ -53,7 +54,7 @@ const Post = () => {
             setPhotoList(postData)
         };
         fetchPost();
-    }, [userId, name]);
+    }, [userId]);
     
     const postHandler = (post) => {
         dispatch(modalActions.switchTogglePostModal({post: post, type: 'post'}))

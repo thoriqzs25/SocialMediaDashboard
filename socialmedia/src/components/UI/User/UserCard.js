@@ -1,16 +1,16 @@
-import { Fragment } from 'react';
-import UserItem from './UserItem';
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { Fragment, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../../store/user-slice';
 import { authActions } from '../../store/auth-slice';
-import { useSelector } from 'react-redux';
+
+import UserItem from './UserItem';
 
 const UserCard = () => {
-    const [userList, setUserList] = useState([]);
     const dispatch = useDispatch();
     const userId = useSelector(state => state.user.userId)
     const search = useSelector(state => state.search.search)
+
+    const [userList, setUserList] = useState([]);
 
 
     useEffect(() => {
@@ -36,7 +36,8 @@ const UserCard = () => {
     const userLoginHandler = (item) => {
         if(userId === -1) { //kalau belom login -> ketika login langusng redirect ke post sm album page
             dispatch(authActions.toggle())
-        }
+        };
+
         dispatch(userActions.changeUser({
             id: item.id,
             name: item.name,
@@ -47,7 +48,7 @@ const UserCard = () => {
 
     const filterSearch = userList.filter(val => {
         return val.name.toLowerCase().includes(search.toLowerCase())
-    })
+    });
 
     return (
     <Fragment>

@@ -1,10 +1,11 @@
-import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import ModalBackdrop from './ModalBackdrop';
-import OverlayCard from './OverlayCard';
+import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+
+import OverlayCard from './OverlayCard';
 import OverlayAlbum from './OverlayAlbum';
 import OverlayCreate from './OverlayCreate';
+import ModalBackdrop from './ModalBackdrop';
 
 const portalElemenet = document.getElementById("overlays");
 
