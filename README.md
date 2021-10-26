@@ -17,6 +17,7 @@ The purpose of this project is to build a simple website dashboard using reactJs
 - Click post to show comment
 - Click the 3 dot to edit post
 - Click album to show all photos inside the album
+- ALL edit, add, delete result is printed in console due to using static API
 # Parameters
 1. List of users (100%)
 2. List of posts of each user (100%)
