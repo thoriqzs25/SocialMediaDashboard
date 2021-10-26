@@ -12,6 +12,9 @@ import classes from './MainHeader.module.css';
 const MainHeader = () => {
     const dispatch = useDispatch();
 
+    var userData = JSON.parse(localStorage.getItem("userData"));
+    console.log(userData);
+
     const userId = useSelector(state => state.user.userId);
     const nameLogin = useSelector(state => state.user.name);
     const subPage = useSelector(state => state.auth.subPage);
@@ -27,6 +30,8 @@ const MainHeader = () => {
     };
 
     const logoutHandler = () => {
+        localStorage.removeItem("userData");
+        
         dispatch(userActions.logoutReducer());
         dispatch(authActions.toggleHome());
         dispatch(authActions.navigate('home'));
@@ -48,7 +53,9 @@ const MainHeader = () => {
 
             <nav>
                 <ul>
-                    {userId > 0 ? <li><p>{nameLogin}</p></li> : <li><p>Welcome... Choose a user</p></li>}
+                    {userId > 0 ? <li><p>{nameLogin}</p></li> : <li>{ currPage === 'home' &&
+                    <p>Welcome... Choose a user</p>}
+                    </li>}
 
                     {userId > 0 && 
                     <li onClick={logoutHandler}>

@@ -26,14 +26,14 @@ const UserPage = () => {
         <Post />
         <div className={classes.buttoncont}>
             <button onClick={togglePostListHandler}>
-                Show more post
+                More user post
             </button>
         </div>
         <h3>Album</h3>
         <AlbumThumb />
         <div className={classes.buttoncont}>
             <button onClick={toggleAlbumHandler}>
-                album test
+                More user album
             </button>
         </div>
     </div>
