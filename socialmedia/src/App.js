@@ -8,15 +8,14 @@ import { userActions } from './components/store/user-slice';
 
 function App() {
   var isLogin = localStorage.getItem("isLogin");
-  var userData = JSON.parse(localStorage.getItem("userData"));
-  
+  var userData = localStorage.getItem("userData");
+
   const dispatch = useDispatch();
 
-  if (isLogin) {
-    console.log("masuk")
+  if(isLogin) {
     dispatch(userActions.changeUser(userData));
   };
-  
+
   return (
     <Layout>
       <Route path="/" exact>

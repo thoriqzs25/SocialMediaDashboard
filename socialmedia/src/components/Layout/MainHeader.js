@@ -15,13 +15,11 @@ const MainHeader = () => {
     const userId = useSelector(state => state.user.userId);
     const nameLogin = useSelector(state => state.user.name);
     const subPage = useSelector(state => state.auth.subPage);
-
     const currPage = useSelector(state => state.auth.currPage);
-
+    console.log(userId)
     const toggleHandler = () => {
         dispatch(authActions.toggleSubPage());
     };
-
 
     const homeToggle = () => {
         dispatch(authActions.toggleHome());
@@ -29,8 +27,8 @@ const MainHeader = () => {
     };
 
     const logoutHandler = () => {
+        localStorage.removeItem("isLogin")
         localStorage.removeItem("userData");
-        localStorage.removeItem("isLogin");
         
         dispatch(authActions.toggleHome());
         dispatch(authActions.navigate('home'));

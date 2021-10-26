@@ -6,9 +6,6 @@ import { authActions } from '../../store/auth-slice';
 import UserItem from './UserItem';
 
 const UserCard = () => {
-    var userData = JSON.parse(localStorage.getItem("userData"));
-    const userId = Number(userData.id)
-
     const dispatch = useDispatch();
     const search = useSelector(state => state.search.search)
     
