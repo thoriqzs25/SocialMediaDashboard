@@ -2,6 +2,13 @@
 A social media dashboard intended for Technical Assesment (temporary)
 # Purpose
 The purpose of this project is to build a simple website dashboard using reactJs
+# Dependencies
+1. ReactJs
+2. Redux
+3. Netlify
+# Assumption
+1. A post title entity works as a url to image
+2. A post includes a photo with a caption
 # Use
 - The user and home icon on the header will act as a toggle between subpage
 - Viewing album and posts without picking an acount will show a random post (5) and album (6)
@@ -9,10 +16,6 @@ The purpose of this project is to build a simple website dashboard using reactJs
 - Click the image to show details
 - Click post to show comment
 - Click album to show all photos inside the album
-# Dependencies
-1. ReactJs
-2. Redux
-3. Heroku
 # Parameters
 1. List of users (100%)
 2. List of posts of each user (100%)
