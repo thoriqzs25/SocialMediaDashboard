@@ -69,7 +69,7 @@ const Post = () => {
         <div className={classes.container}>
             {postsList.slice(0, 5).map((val,index) => {
                 return (
-                    <div key={val.id} className={classes.subcontainer}>
+                    <div key={index} className={classes.subcontainer}>
                         <div className={classes.grid} onClick={postHandler.bind(null, val)}>
                             <PostItem 
                             title={val.title} 

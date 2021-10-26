@@ -56,7 +56,7 @@ const AlbumThumb = () => {
         <div className={classes.container}>
             {albumList.slice(0, 6).map((album, index) => {
             return(
-                <div key={album.id} className={classes.subcontainer}>
+                <div key={index} className={classes.subcontainer}>
                     <div className={classes.grid}>
                         <Link to={`/albums/${(album.id)}/photos`}>
                             <AlbumThumbItem title={album.title}/>

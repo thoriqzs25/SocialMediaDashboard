@@ -57,7 +57,7 @@ const AlbumOverlay = () => {
                     {albumList.map((album, index) => {
                         return(
                             <div className={classes.albumitem} onClick={albumPickHanlder}>
-                                <Link to={`/albums/${(album.id)}/photos`} key={album.id}>
+                                <Link to={`/albums/${(album.id)}/photos`} key={index}>
                                     {index === 0 &&
                                         <div ref={myRef}>
                                             <Card item={album.title}/>

@@ -45,7 +45,7 @@ const PostOverlay = () => {
 
         {!addComment && !editPost &&
             <Fragment>
-                <div>
+                <div className={classes.edit}>
                     <button onClick={editPostHandler}>Edit Post</button>
                 </div>
                 <p>{post.body}</p>

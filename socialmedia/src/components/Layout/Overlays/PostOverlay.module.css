@@ -8,4 +8,8 @@
     background-color: rgb(185, 179, 179);
     overflow-y: scroll;
 }
-
+.edit {
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 10px;
+}

@@ -12,9 +12,6 @@ import classes from './MainHeader.module.css';
 const MainHeader = () => {
     const dispatch = useDispatch();
 
-    var userData = JSON.parse(localStorage.getItem("userData"));
-    console.log(userData);
-
     const userId = useSelector(state => state.user.userId);
     const nameLogin = useSelector(state => state.user.name);
     const subPage = useSelector(state => state.auth.subPage);
@@ -31,6 +28,7 @@ const MainHeader = () => {
 
     const logoutHandler = () => {
         localStorage.removeItem("userData");
+        localStorage.removeItem("isLogin")
         
         dispatch(userActions.logoutReducer());
         dispatch(authActions.toggleHome());
