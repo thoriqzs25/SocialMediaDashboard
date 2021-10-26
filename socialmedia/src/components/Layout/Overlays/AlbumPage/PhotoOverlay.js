@@ -5,10 +5,12 @@ const PhotoOverlay = (props) => {
     return (
         <Modal>
             <div className={classes.left}>
-                <img src={props.url} alt={props.title}/>
+               <img src={props.url} alt={props.title}/>
             </div>
             <div className={classes.right}>
-                <p>{props.title}</p>
+                <div className={classes.caption}>
+                    <p>{props.title}</p>    
+                </div>
             </div>
         </Modal>
     );

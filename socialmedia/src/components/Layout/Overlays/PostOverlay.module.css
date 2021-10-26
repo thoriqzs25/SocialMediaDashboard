@@ -5,11 +5,16 @@
     align-items: center;
 }
 .right {
-    background-color: rgb(185, 179, 179);
+    background-color: rgb(204, 199, 199);
     overflow-y: scroll;
 }
 .edit {
     text-align: right;
-    padding-top: 10px;
-    padding-right: 10px;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+.right button {
+    border: 3px solid white;
+    background-color: #41436A;
+    color: white;
 }

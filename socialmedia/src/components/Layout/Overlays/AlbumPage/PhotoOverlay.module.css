@@ -5,11 +5,33 @@
     align-items: center;
 }
 .right {
-    background-color: rgb(185, 179, 179);
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    background-color: white;
+    font-size: 40px;
     overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 0 0;
 }
 .left img:hover {
     cursor: default;
     transition: none;
     opacity: 1;
+}
+/* .photo {
+    object-fit: cover;
+    border: 2px solid black;
+    background-color: red;
+    border-radius: 10px;
+    height: 10px;
+} */
+.left img {
+    width: 94%;
+    border-radius: 10px;
+}
+.caption {
+    margin-left: 35px;
 }

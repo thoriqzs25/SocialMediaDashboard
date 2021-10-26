@@ -5,6 +5,7 @@ import EditPost from "./EditPost";
 import FormOverlay from "./FormOverlay";
 import Comment from "./Comments/Comment";
 import Modal from "../../UI/Modal/Modal";
+import dot from '../../../assets/3dot.png';
 import classes from './PostOverlay.module.css';
 
 
@@ -46,7 +47,7 @@ const PostOverlay = () => {
         {!addComment && !editPost &&
             <Fragment>
                 <div className={classes.edit}>
-                    <button onClick={editPostHandler}>Edit Post</button>
+                    <img src={dot} alt='3_dot_edit' onClick={editPostHandler}/>
                 </div>
                 <p>{post.body}</p>
                 <button onClick={addCommentHandler}>Add Comment</button>
