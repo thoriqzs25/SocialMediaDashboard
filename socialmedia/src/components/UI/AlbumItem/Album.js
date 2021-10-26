@@ -1,12 +1,12 @@
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 import AlbumItem from './AlbumItems';
 import classes from './Album.module.css';
 
 const Album = () => {
-    var userData = JSON.parse(localStorage.getItem("userData"));
-    const userId = Number(userData.id)
+    const userId = useSelector(state => state.user.userId);
 
     const [photoList, setPhotoList] = useState([]);
     const [userName, setUserName] = useState('');
