@@ -79,7 +79,7 @@ const Post = () => {
                 )
             })}
             <div className={classes.subcontainer} onClick={createHandler}>
-                <div className={classes.grid}>
+                <div className={classes.grid} >
                     <PostItem title='+'/>
                 </div>
             </div>

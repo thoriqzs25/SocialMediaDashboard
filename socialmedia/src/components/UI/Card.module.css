@@ -1,11 +1,16 @@
 .card {
     border-radius: 10px;
-    background-color: thistle;
+    background-color: rgb(245, 167, 167);
     height: 12rem;
     width: 18rem;
     text-align: center;
     display: flex;
+    cursor: pointer;
 }
 .img {
     margin: auto;
+}
+.card:hover {
+    opacity: 0.8;
+    transition: 0.4s;
 }

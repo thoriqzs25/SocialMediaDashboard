@@ -12,10 +12,10 @@ import classes from './MainHeader.module.css';
 const MainHeader = () => {
     const dispatch = useDispatch();
 
+    const userId = useSelector(state => state.user.userId);
+    const nameLogin = useSelector(state => state.user.name);
     const subPage = useSelector(state => state.auth.subPage);
     const currPage = useSelector(state => state.auth.currPage);
-    const nameLogin = useSelector(state => state.user.name)
-    const userId = useSelector(state => state.user.userId)
     const toggleHandler = () => {
         dispatch(authActions.toggleSubPage());
     };
@@ -28,6 +28,7 @@ const MainHeader = () => {
 
     const logoutHandler = () => {
         dispatch(userActions.logoutReducer())
+        dispatch(authActions.navigate('home'))
     };
 
     return (

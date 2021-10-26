@@ -1,6 +1,5 @@
 .container {
     display: grid;
-    border: 2px solid blue;
     grid-template-columns: auto auto auto;
 }
 .subcontainer {

@@ -16,3 +16,9 @@
     width: 90%;
     height: 20%;
 }
+.warning {
+    width: 20rem;
+    position: relative;
+    left: 65%;
+    top: 140%;
+}

@@ -30,3 +30,20 @@ button:active {
   border-color: #1ac5d1;
   color: white;
 }
+
+img {
+  cursor: pointer;
+}
+
+img:hover {
+  opacity: 0.8;
+  transition: 0.5s;
+}
+
+span {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: white;
+}

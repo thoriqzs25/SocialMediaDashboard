@@ -7,6 +7,9 @@
     width: 12rem;
     height: 2rem;
 }
-.buttoncont {
-    text-align: center;
+.buttoncont button {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

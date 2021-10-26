@@ -6,6 +6,7 @@ import { modalActions } from "../../store/modal-slice";
 import Card from "../../UI/Card";
 import Modal from "../../UI/Modal/Modal";
 import classes from './AlbumOverlay.module.css';
+import { Fragment } from 'react';
 
 const AlbumOverlay = () => {
     const dispatch = useDispatch();
@@ -50,28 +51,32 @@ const AlbumOverlay = () => {
     return (
         <Modal>
             <div className={classes.album}>
-                {albumList.map((album, index) => {
-                    return(
-                        <div className={classes.albumitem} onClick={albumPickHanlder}>
-                            <Link to={`/albums/${(album.id)}/photos`} key={album.id}>
-                                {index === 0 &&
-                                    <div ref={myRef}>
-                                        <Card item={album.title}/>
-                                    </div>
-                                }
+                {userId === -1 && <div className={classes.warning}><p>Please pick a user and then revisit...</p></div>}
 
-                                {index >= 1 &&
-                                    <div>
-                                        <Card item={album.title} />
-                                    </div>
-                                }
-                            </Link>
-                        </div>)
-                })}
-                
-                <div className={classes.albumitem}>
-                    <button onClick={executeScroll}> Click to scroll </button>
-                </div>
+                {userId > 0 && <Fragment>
+                    {albumList.map((album, index) => {
+                        return(
+                            <div className={classes.albumitem} onClick={albumPickHanlder}>
+                                <Link to={`/albums/${(album.id)}/photos`} key={album.id}>
+                                    {index === 0 &&
+                                        <div ref={myRef}>
+                                            <Card item={album.title}/>
+                                        </div>
+                                    }
+
+                                    {index >= 1 &&
+                                        <div>
+                                            <Card item={album.title} />
+                                        </div>
+                                    }
+                                </Link>
+                            </div>)
+                    })}
+                    
+                    <div className={classes.albumitem}>
+                        <button onClick={executeScroll}> Click to scroll </button>
+                    </div>
+                </Fragment>}
             </div>
         </Modal>
     );

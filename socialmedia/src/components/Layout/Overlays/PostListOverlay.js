@@ -47,7 +47,7 @@ const PostListOverlay = () => {
     return (
         <Modal>
             <div className={classes.container}>
-                {userId === -1 && <p>Please pick a user and then revisit...</p>}
+                {userId === -1 && <div className={classes.warning}><p>Please pick a user and then revisit...</p></div>}
 
                 {userId > 0 && 
                 <Fragment>

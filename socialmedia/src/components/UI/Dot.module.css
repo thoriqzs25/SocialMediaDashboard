@@ -12,3 +12,7 @@
     width: 23px;
     margin: auto;
 }
+.dot:hover {
+  background-color: rgb(240, 80, 80);
+  transition: 0.5s;
+}
