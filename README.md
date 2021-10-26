@@ -1,5 +1,5 @@
 # SocialMediaDashboard
-A social media dashboard intended for Technical Assesment (temporary)
+A social media dashboard intended for Technical Assesment, It's not a responsive website so use fullscreen on desktop to maximize design usage
 # Purpose
 The purpose of this project is to build a simple website dashboard using reactJs
 # Dependencies
@@ -15,6 +15,7 @@ The purpose of this project is to build a simple website dashboard using reactJs
 - Viewing photos by clicking the random album will show It's owner
 - Click the image to show details
 - Click post to show comment
+- Click the 3 dot to edit post
 - Click album to show all photos inside the album
 # Parameters
 1. List of users (100%)
