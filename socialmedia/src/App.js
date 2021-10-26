@@ -15,10 +15,11 @@ function App() {
   const dispatch = useDispatch();
 
   if(isLogin) {
-    if(subPage) {
-      dispatch(authActions.toggleSubPage(subPage));
-    };
     dispatch(userActions.changeUser(userData));
+  };
+  
+  if(subPage) {
+    dispatch(authActions.toggleSubPage());
   };
 
   return (
