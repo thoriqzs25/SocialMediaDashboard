@@ -51,7 +51,7 @@ const Album = () => {
 
     return (
         <div className={classes.container}>
-            {userId === -1 && <h3>This is {userName} album's</h3>}
+            {userId === -1 && <h3>{userName}'s album</h3>}
             <AlbumItem photos={photoList}/>
         </div>
     );
