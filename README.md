@@ -1,12 +1,12 @@
 # SocialMediaDashboard
 A social media dashboard intended for Technical Assesment (temporary)
-#Purpose
+# Purpose
 The purpose of this project is to build a simple website dashboard using reactJs
-#Dependencies
+# Dependencies
 1. ReactJs
 2. Redux
 3. Heroku
-#Parameters
+# Parameters
 1. List of users (100%)
 2. List of posts of each user (100%)
 3. List of albums of each user (100%)
@@ -15,9 +15,9 @@ The purpose of this project is to build a simple website dashboard using reactJs
 6. Detail of photo (100%)
 7. Add, edit, and delete post (100%)
 8. Add, edit, and delete comment (100%)
-#Additional Feature
+# Additional Feature
 1. Search by name
 2. Random feeds when no user detected
-#Resources
+# Resources
 1. API : https://jsonplaceholder.typicode.com/
-#Bugs so far 
+# Bugs so far 
