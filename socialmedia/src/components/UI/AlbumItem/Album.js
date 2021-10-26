@@ -1,12 +1,15 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 
+import { useSelector } from "react-redux";
+
 import AlbumItem from './AlbumItems';
 import classes from './Album.module.css';
 
 const Album = () => {
     const [photoList, setPhotoList] = useState([]);
     const { iD } = useParams();
+    const userId = useSelector(state => state.user.userId)
 
     useEffect(() => {
         const fetchPhoto = async () => {
@@ -29,6 +32,7 @@ const Album = () => {
 
     return (
         <div className={classes.container}>
+            {userId === -1 && <h3>album's</h3>}
             <AlbumItem photos={photoList}/>
         </div>
     );

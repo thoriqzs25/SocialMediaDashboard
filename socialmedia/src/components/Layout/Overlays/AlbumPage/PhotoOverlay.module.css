@@ -8,3 +8,8 @@
     background-color: rgb(185, 179, 179);
     overflow-y: scroll;
 }
+.left img:hover {
+    cursor: default;
+    transition: none;
+    opacity: 1;
+}

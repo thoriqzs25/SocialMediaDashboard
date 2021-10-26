@@ -1,5 +1,5 @@
 import classes from './UserItem.module.css';
-import user from '../../../assets/user.png';
+import user from '../../../assets/user1.png';
 
 const UserItem = (props) => {
     return (

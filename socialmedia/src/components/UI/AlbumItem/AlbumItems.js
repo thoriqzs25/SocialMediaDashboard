@@ -25,8 +25,8 @@ const AlbumItem = (props) => {
             {isModal && <PhotoOverlay url={pickedPhoto.url} title={pickedPhoto.title}/>}
             {props.photos.map((photo, index) => {
                 return (
-                    <div className={classes.subcontainer} key={photo.id} onClick={pickPhoto.bind(null, photo)}>
-                        <div className={classes.img}>
+                    <div className={classes.subcontainer} key={photo.id}>
+                        <div className={classes.img} onClick={pickPhoto.bind(null, photo)}>
                             <img src={photo.url} alt={photo.title}/>  
                         </div>
                     </div>

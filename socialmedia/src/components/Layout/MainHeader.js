@@ -27,8 +27,9 @@ const MainHeader = () => {
     };
 
     const logoutHandler = () => {
-        dispatch(userActions.logoutReducer())
-        dispatch(authActions.navigate('home'))
+        dispatch(userActions.logoutReducer());
+        dispatch(authActions.toggleHome());
+        dispatch(authActions.navigate('home'));
     };
 
     return (
@@ -47,7 +48,7 @@ const MainHeader = () => {
 
             <nav>
                 <ul>
-                    {userId > 0 && <li><p>{nameLogin}</p></li>}
+                    {userId > 0 ? <li><p>{nameLogin}</p></li> : <li><p>Welcome... Choose a user</p></li>}
 
                     {userId > 0 && 
                     <li onClick={logoutHandler}>

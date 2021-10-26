@@ -1,11 +1,13 @@
-.card {
+.card{
     border-radius: 10px;
-    background-color: rgb(245, 167, 167);
     height: 12rem;
     width: 18rem;
     text-align: center;
     display: flex;
     cursor: pointer;
+}
+.pink {
+    background-color: rgb(245, 167, 167);
 }
 .img {
     margin: auto;
@@ -14,3 +16,8 @@
     opacity: 0.8;
     transition: 0.4s;
 }
+.card button {
+    height: 100%;
+    width: 100%;
+}
+

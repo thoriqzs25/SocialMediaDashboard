@@ -1,3 +1,7 @@
-.container {
+.container p {
     color: white;
+}
+.plus p {
+    color: inherit;
+    font-size: 2rem;
 }

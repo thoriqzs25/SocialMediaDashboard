@@ -13,3 +13,9 @@
     justify-content: center;
     align-items: center;
 }
+.container h3 {
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 8%;
+    margin-top: 2%;
+}
