@@ -48,7 +48,7 @@ const EditPost = (props) => {
             method: 'DELETE', 
         })
         console.log(`DELETED POST WITH ID ${postToEdit.id}`)
-        dispatch(modalActions.toggle())
+        dispatch(modalActions.reset())
     };
 
     return (

@@ -46,9 +46,9 @@ const Content = () => {
     }, []);
 
     const photoPickHandler = (item) => {
-        setPhotoOverlay(item)
+        setPhotoOverlay(item);
 
-        dispatch(modalActions.switchCreatePost('photos'))
+        dispatch(modalActions.openModal('photos'));
     };
 
     return (

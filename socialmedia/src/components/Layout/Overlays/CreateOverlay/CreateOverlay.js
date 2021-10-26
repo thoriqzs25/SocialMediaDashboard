@@ -5,7 +5,7 @@ import { modalActions } from "../../../store/modal-slice";
 import Modal from "../../../UI/Modal/Modal";
 import classes from './CreateOverlay.module.css';
 
-const CreateOverlay = (props) => {
+const CreateOverlay = () => {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.user.userId)
 
@@ -41,7 +41,7 @@ const CreateOverlay = (props) => {
             .then((response) => response.json())
             .then((json) => console.log(json));
 
-        dispatch(modalActions.toggle())
+        dispatch(modalActions.reset())
     };
 
     return (

@@ -5,10 +5,11 @@ import UserCard from "../UI/User/UserCard";
 import classes from './Sidebar.module.css';
 
 const Sidebar = () => {
-    const isAuth = useSelector(state => state.auth.isAuthenticated)
+    const subPage = useSelector(state => state.auth.subPage)
+
     return (
         <Fragment>
-            {!isAuth ? 
+            {!subPage ? 
             <div className={classes.sider}>
                 <UserCard />
             </div>

@@ -12,17 +12,17 @@ import classes from './MainHeader.module.css';
 const MainHeader = () => {
     const dispatch = useDispatch();
 
-    const isAuth = useSelector(state => state.auth.isAuthenticated);
+    const subPage = useSelector(state => state.auth.subPage);
     const currPage = useSelector(state => state.auth.currPage);
     const nameLogin = useSelector(state => state.user.name)
     const userId = useSelector(state => state.user.userId)
     const toggleHandler = () => {
-        dispatch(authActions.toggle());
+        dispatch(authActions.toggleSubPage());
     };
 
 
     const homeToggle = () => {
-        dispatch(authActions.togglePage1());
+        dispatch(authActions.toggleHome());
         dispatch(authActions.navigate('home'));
     };
 
@@ -33,7 +33,7 @@ const MainHeader = () => {
     return (
         <header className={classes.header}>
 
-            {isAuth ?
+            {subPage ?
             <div onClick={toggleHandler}>
                 <Link to='/'>
                     <h1>SOCIAL MEDIA</h1>
@@ -57,7 +57,7 @@ const MainHeader = () => {
 
                     {currPage === 'home' && <li><Search /></li>}
                     
-                    {isAuth ?
+                    {subPage ?
                     <li onClick={homeToggle}>
                         <Link to='/'>
                             <Dot item={home} alt={"home_alt"} />

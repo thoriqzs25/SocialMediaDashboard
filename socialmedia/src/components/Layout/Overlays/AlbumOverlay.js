@@ -44,7 +44,7 @@ const AlbumOverlay = () => {
     const albumPickHanlder = (e) => {
         e.preventDefault();
 
-        dispatch(modalActions.toggle());
+        dispatch(modalActions.reset());
     };
 
     return (

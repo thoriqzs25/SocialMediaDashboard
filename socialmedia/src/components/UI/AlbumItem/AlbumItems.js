@@ -17,7 +17,7 @@ const AlbumItem = (props) => {
 
     const pickPhoto = (item) => {
         setPickedPhoto(item)
-        dispatch(modalActions.switchCreatePost('photos'))
+        dispatch(modalActions.openModal('photos'))
     };
 
     return (

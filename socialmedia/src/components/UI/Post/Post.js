@@ -57,11 +57,12 @@ const Post = () => {
     }, [userId]);
     
     const postHandler = (post) => {
-        dispatch(modalActions.switchTogglePostModal({post: post, type: 'post'}))
+        dispatch(modalActions.switch({post: post, type: 'post'}))
+        dispatch(modalActions.toggle());
     };
     
     const createHandler = () => {
-        dispatch(modalActions.switchCreatePost('create'));
+        dispatch(modalActions.openModal('create'));
     };
 
     return (

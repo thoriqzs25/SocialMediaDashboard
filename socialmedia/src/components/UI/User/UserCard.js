@@ -35,7 +35,7 @@ const UserCard = () => {
 
     const userLoginHandler = (item) => {
         if(userId === -1) { //kalau belom login -> ketika login langusng redirect ke post sm album page
-            dispatch(authActions.toggle())
+            dispatch(authActions.toggleSubPage())
         };
 
         dispatch(userActions.changeUser({

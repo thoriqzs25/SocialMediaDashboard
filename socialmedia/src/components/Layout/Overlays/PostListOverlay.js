@@ -7,7 +7,7 @@ import classes from './PostListOverlay.module.css';
 import PostListItem from './PostListOverlay/PostListItem';
 
 
-const PostListOverlay = (props) => {
+const PostListOverlay = () => {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.user.userId)
 
@@ -41,7 +41,7 @@ const PostListOverlay = (props) => {
     };
 
     const postPickHandler = (post) => {
-        dispatch(modalActions.switchPostModal({post: post, type: 'post'}))
+        dispatch(modalActions.switch({post: post, type: 'post'}));
     };
 
     return (

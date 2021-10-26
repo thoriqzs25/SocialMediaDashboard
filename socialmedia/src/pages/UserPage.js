@@ -11,13 +11,13 @@ const UserPage = () => {
     const togglePostListHandler = (event) => {
         event.preventDefault();
 
-        dispatch(modalActions.togglePostListModal());
+        dispatch(modalActions.openModal('postList'));
     };
 
     const toggleAlbumHandler = (event) => {
         event.preventDefault();
 
-        dispatch(modalActions.toggleAlbumModal());
+        dispatch(modalActions.openModal('album'));
     };
 
     return (
