@@ -1,5 +1,6 @@
+// import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { modalActions } from "../../store/modal-slice";
 
@@ -36,11 +37,11 @@ const AlbumOverlay = () => {
         fetchAlbum();
     }, [userId]);
 
-    const myRef = useRef();
+    // const myRef = useRef();
         
-    const executeScroll = () => {
-        myRef.current.scrollIntoView({ behavior: 'smooth' })
-    };
+    // const executeScroll = () => {
+    //     myRef.current.scrollIntoView({ behavior: 'smooth' })
+    // };
     
     const albumPickHanlder = (e) => {
         e.preventDefault();
@@ -59,7 +60,9 @@ const AlbumOverlay = () => {
                             <div className={classes.albumitem} onClick={albumPickHanlder}>
                                 <Link to={`/albums/${(album.id)}/photos`} key={index}>
                                     {index === 0 &&
-                                        <div ref={myRef}>
+                                        <div 
+                                        // ref={myRef}
+                                        >
                                             <Card item={album.title}/>
                                         </div>
                                     }
@@ -73,9 +76,9 @@ const AlbumOverlay = () => {
                             </div>)
                     })}
                     
-                    <div className={classes.albumitem}>
+                    {/* <div className={classes.albumitem}>
                         <button onClick={executeScroll}> Click to scroll </button>
-                    </div>
+                    </div> */}
                 </Fragment>}
             </div>
         </Modal>

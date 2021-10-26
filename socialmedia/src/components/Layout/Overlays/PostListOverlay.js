@@ -1,5 +1,6 @@
+// import { useRef } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect, useRef, Fragment } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { modalActions } from '../../store/modal-slice';
 
 import Modal from '../../UI/Modal/Modal';
@@ -35,11 +36,11 @@ const PostListOverlay = () => {
         fetchPost();
     }, [userId]);
 
-    const myRef = useRef();
+    // const myRef = useRef();
         
-    const executeScroll = () => {
-        myRef.current.scrollIntoView({ behavior: 'smooth' })
-    };
+    // const executeScroll = () => {
+    //     myRef.current.scrollIntoView({ behavior: 'smooth' })
+    // };
 
     const postPickHandler = (post) => {
         dispatch(modalActions.switch({post: post, type: 'post'}));
@@ -56,7 +57,7 @@ const PostListOverlay = () => {
                         return (
                             <div className={classes.subcontainer}>
                                 <PostListItem 
-                                myRef={myRef} 
+                                // myRef={myRef} 
                                 index={index} 
                                 title={post.title} 
                                 key={index}
@@ -65,9 +66,9 @@ const PostListOverlay = () => {
                         )
                     })}
                     
-                    <div className={classes.subcontainer}>
+                    {/* <div className={classes.subcontainer}>
                         <button onClick={executeScroll}> Click to scroll </button>
-                    </div>
+                    </div> */}
                 </Fragment>}
             </div>
         </Modal>

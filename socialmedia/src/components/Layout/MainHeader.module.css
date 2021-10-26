@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #F64668;
+    background-color: #F04E4E;
 }
 
 .header h1, .header p {
@@ -28,8 +28,27 @@
     margin-left: 1rem;
 }
 .header button {
-    margin: 10px 0 0 12px;
+    margin: 8px 0 0 12px;
+    font-size: 20px;
 }
 .header h1 {
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+}
+.left {
+    width: 35rem;
+    display: grid;
+    grid-template-columns: 48% 3% 47%;
+    
+}
+.garis {
+    border: 2px solid rgb(235, 234, 234);
+    border-radius: 10px;
+    height: 80px;
+    width: 1px;
+}
+.name {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
 }

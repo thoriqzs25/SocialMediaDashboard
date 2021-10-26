@@ -41,22 +41,29 @@ const MainHeader = () => {
 
     return (
         <header className={classes.header}>
-
-            {subPage ?
-            <div onClick={toggleHandler}>
-                <Link to='/'>
+            <div className={classes.left}>    
+                {subPage ?
+                <div onClick={toggleHandler}>
+                    <Link to='/'>
+                        <h1>SOCIAL MEDIA</h1>
+                    </Link>
+                </div> 
+                :
+                <div>
                     <h1>SOCIAL MEDIA</h1>
-                </Link>
-            </div> 
-            :
-            <div>
-                <h1>SOCIAL MEDIA</h1>
-            </div>}
+                </div>}
+                <div className={classes.garis}></div>
+                <div className={classes.name}>
+                    <p>{nameLogin}</p>
+                </div>
+            </div>
+
 
             <nav>
                 <ul>
-                    {userId > 0 ? <li><p>{nameLogin}</p></li> : <li>{ currPage === 'home' &&
-                    <p>Welcome... Choose a user</p>}
+                    {userId === -1 && currPage === 'home' &&
+                    <li>
+                        <p>Welcome... please choose a user</p>
                     </li>}
 
                     {userId > 0 && 
