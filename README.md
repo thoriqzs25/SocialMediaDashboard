@@ -2,6 +2,9 @@
 A social media dashboard intended for Technical Assesment (temporary)
 # Purpose
 The purpose of this project is to build a simple website dashboard using reactJs
+# Use
+- The user and home icon on the header will act as a toggle between subpage
+- Viewing album and posts without picking an acount will show a random post (5) and album (6)
 # Dependencies
 1. ReactJs
 2. Redux
