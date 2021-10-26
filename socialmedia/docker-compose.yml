@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  latihan-18:
+    build:
+      context: .
+    volumes:
+      - .:/socialmedia
+    ports:
+      - 3000:3000
+    image: socialmedia:react_technical_test
+    container_name: socialmedia
+    command: npm start
