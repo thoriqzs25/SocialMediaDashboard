@@ -5,6 +5,10 @@ The purpose of this project is to build a simple website dashboard using reactJs
 # Use
 - The user and home icon on the header will act as a toggle between subpage
 - Viewing album and posts without picking an acount will show a random post (5) and album (6)
+- Viewing photos by clicking the random album will show It's owner
+- Click the image to show details
+- Click post to show comment
+- Click album to show all photos inside the album
 # Dependencies
 1. ReactJs
 2. Redux
