@@ -21,3 +21,4 @@ The purpose of this project is to build a simple website dashboard using reactJs
 # Resources
 1. API : https://jsonplaceholder.typicode.com/
 # Bugs so far 
+1. Refreshing the page while on photos of album page will make the website crash (I forgot to use localStorage for the event)
