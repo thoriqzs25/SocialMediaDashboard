@@ -10,12 +10,19 @@ import home from '../../assets/home.png';
 import classes from './MainHeader.module.css';
 
 const MainHeader = () => {
+<<<<<<< HEAD
     var userData = JSON.parse(localStorage.getItem("userData"));
     var isLogin = localStorage.getItem("isLogin")
     const nameLogin = userData.name;
     console.log(userData)
     
     const dispatch = useDispatch();
+=======
+    const dispatch = useDispatch();
+
+    const userId = useSelector(state => state.user.userId);
+    const nameLogin = useSelector(state => state.user.name);
+>>>>>>> loading
     const subPage = useSelector(state => state.auth.subPage);
 
     const currPage = useSelector(state => state.auth.currPage);
@@ -31,7 +38,12 @@ const MainHeader = () => {
     };
 
     const logoutHandler = () => {
+<<<<<<< HEAD
         localStorage.setItem("isLogin", false)
+=======
+        localStorage.removeItem("userData");
+        localStorage.removeItem("isLogin")
+>>>>>>> loading
         
         dispatch(authActions.toggleHome());
         dispatch(authActions.navigate('home'));

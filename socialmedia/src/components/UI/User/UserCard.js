@@ -36,6 +36,7 @@ const UserCard = () => {
     }, []);
 
     const userLoginHandler = (item) => {
+<<<<<<< HEAD
         localStorage.setItem('userData', JSON.stringify(item));
         localStorage.setItem("isLogin", true);
 
@@ -44,6 +45,12 @@ const UserCard = () => {
         };
 
         window.location.reload()
+=======
+        localStorage.setItem("isLogin", true);
+        localStorage.setItem("userData", JSON.stringify(item));
+
+        dispatch(authActions.toggleSubPage())
+>>>>>>> loading
         dispatch(userActions.changeUser({
             id: item.id,
             name: item.name,

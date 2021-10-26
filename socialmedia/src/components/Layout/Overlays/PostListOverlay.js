@@ -60,7 +60,7 @@ const PostListOverlay = () => {
                                 myRef={myRef} 
                                 index={index} 
                                 title={post.title} 
-                                key={post.id}
+                                key={index}
                                 onPicked={postPickHandler.bind(null, post)}/>
                             </div>
                         )
