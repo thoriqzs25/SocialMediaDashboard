@@ -1,5 +1,5 @@
-import { Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Switch, Route } from 'react-router';
 import { userActions } from './components/store/user-slice';
 import { authActions } from './components/store/auth-slice';
 
@@ -24,12 +24,14 @@ function App() {
 
   return (
     <Layout>
-      <Route path="/" exact>
-        <ContentGrid />
-      </Route>
-      <Route path="/albums/:iD">
-        <AlbumPage />
-      </Route>
+      <Switch>
+        <Route path="/" exact>
+          <ContentGrid />
+        </Route>
+        <Route path="/albums/:iD/photos" exact>
+          <AlbumPage />
+        </Route>
+      </Switch>
     </Layout>
   );
 };
