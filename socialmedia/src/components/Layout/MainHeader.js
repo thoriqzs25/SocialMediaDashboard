@@ -18,16 +18,20 @@ const MainHeader = () => {
     const currPage = useSelector(state => state.auth.currPage);
 
     const toggleHandler = () => {
+        localStorage.setItem("subPage", true);
         dispatch(authActions.toggleSubPage());
     };
 
     const homeToggle = () => {
+        localStorage.removeItem("subPage");
+
         dispatch(authActions.toggleHome());
         dispatch(authActions.navigate('home'));
     };
 
     const logoutHandler = () => {
-        localStorage.removeItem("isLogin")
+        localStorage.removeItem("subPage");
+        localStorage.removeItem("isLogin");
         localStorage.removeItem("userData");
         
         dispatch(userActions.logoutReducer());

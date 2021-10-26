@@ -10,6 +10,7 @@ import PostListItem from './PostListOverlay/PostListItem';
 const PostListOverlay = () => {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.user.userId);
+    console.log(userId)
 
     const [postsList, setPostList] = useState([]);
 

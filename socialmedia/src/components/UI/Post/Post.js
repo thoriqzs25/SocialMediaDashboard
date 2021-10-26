@@ -8,7 +8,6 @@ import classes from './Post.module.css';
 const Post = () => {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.user.userId);
-    console.log(userId)
 
     const [postsList, setPhotoList] = useState([]);
 
