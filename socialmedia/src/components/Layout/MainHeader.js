@@ -16,7 +16,7 @@ const MainHeader = () => {
     const nameLogin = useSelector(state => state.user.name);
     const subPage = useSelector(state => state.auth.subPage);
     const currPage = useSelector(state => state.auth.currPage);
-    console.log(userId)
+
     const toggleHandler = () => {
         dispatch(authActions.toggleSubPage());
     };
@@ -30,6 +30,7 @@ const MainHeader = () => {
         localStorage.removeItem("isLogin")
         localStorage.removeItem("userData");
         
+        dispatch(userActions.logoutReducer());
         dispatch(authActions.toggleHome());
         dispatch(authActions.navigate('home'));
     };
