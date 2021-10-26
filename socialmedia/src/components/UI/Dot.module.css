@@ -1,7 +1,7 @@
 .dot {
     height: 45px;
     width: 45px;
-    background-color: #D17171;
+    background-color: #FE9677;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -13,6 +13,6 @@
     margin: auto;
 }
 .dot:hover {
-  background-color: rgb(240, 80, 80);
+  opacity: 0.8;
   transition: 0.5s;
 }

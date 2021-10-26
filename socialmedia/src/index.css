@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Esteban&family=Montserrat:ital,wght@1,700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -6,7 +6,7 @@
 }
 
 html {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Esteban', serif;
 }
 
 body {
