@@ -12,17 +12,14 @@ import classes from './MainHeader.module.css';
 const MainHeader = () => {
     const dispatch = useDispatch();
 
-    var userData = JSON.parse(localStorage.getItem("userData"));
-    console.log(userData);
-
     const userId = useSelector(state => state.user.userId);
     const nameLogin = useSelector(state => state.user.name);
     const subPage = useSelector(state => state.auth.subPage);
     const currPage = useSelector(state => state.auth.currPage);
+    
     const toggleHandler = () => {
         dispatch(authActions.toggleSubPage());
     };
-
 
     const homeToggle = () => {
         dispatch(authActions.toggleHome());
@@ -30,6 +27,7 @@ const MainHeader = () => {
     };
 
     const logoutHandler = () => {
+        localStorage.removeItem("isLogin")
         localStorage.removeItem("userData");
         
         dispatch(userActions.logoutReducer());
