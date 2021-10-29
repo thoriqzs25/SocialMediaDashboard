@@ -1,5 +1,5 @@
 # SocialMediaDashboard
-A social media dashboard intended for Technical Assesment, It's not a responsive website so use fullscreen on desktop to maximize design usage
+A social media dashboard, It's not a responsive website so use fullscreen on desktop to maximize design usage
 # Purpose
 The purpose of this project is to build a simple website dashboard using reactJs
 # Dependencies
